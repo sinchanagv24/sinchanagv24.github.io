@@ -12,16 +12,57 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  scroll-behavior: smooth;
 }
 
 a {
   color: #149ddd;
   text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 a:hover {
   color: #37b3ed;
   text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 3px solid #149ddd;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to main content link for accessibility */
+.skip-to-main-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #149ddd;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.skip-to-main-content:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
 }
 
 h1,
@@ -44,10 +85,14 @@ h6 {
   bottom: 15px;
   z-index: 996;
   background: #149ddd;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50px;
-  transition: all 0.4s;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .back-to-top i {
@@ -59,6 +104,13 @@ h6 {
 .back-to-top:hover {
   background: #2eafec;
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
 }
 
 .back-to-top.active {
@@ -116,15 +168,24 @@ h6 {
   margin-right: 4px;
   border-radius: 50%;
   text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
+  width: 44px;
+  height: 44px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 #header .profile .social-links a:hover {
   background: #149ddd;
   color: #fff;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(20, 157, 221, 0.3);
+}
+
+#header .profile .social-links a:focus-visible {
+  outline: 3px solid #149ddd;
+  outline-offset: 2px;
+  background: #149ddd;
 }
 
 #main {
@@ -216,8 +277,15 @@ h6 {
   color: #a8a9b4;
   padding: 12px 15px;
   margin-bottom: 8px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   font-size: 15px;
+  border-radius: 4px;
+}
+
+.nav-menu a:focus-visible {
+  outline: 2px solid #149ddd;
+  outline-offset: 2px;
+  background: rgba(20, 157, 221, 0.1);
 }
 
 .nav-menu a i,
@@ -250,18 +318,29 @@ h6 {
   z-index: 9998;
   border: 0;
   font-size: 24px;
-  transition: all 0.4s;
-  outline: none !important;
+  transition: all 0.4s ease;
   background-color: #149ddd;
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
   border-radius: 50px;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-toggle:hover {
+  background-color: #2eafec;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav-toggle:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
 }
 
 .mobile-nav-active {
@@ -580,10 +659,17 @@ section {
 }
 
 .portfolio .portfolio-wrap {
-  transition: 0.3s;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio .portfolio-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .portfolio .portfolio-wrap::before {
@@ -616,11 +702,23 @@ section {
   font-size: 28px;
   text-align: center;
   background: rgba(20, 157, 221, 0.75);
-  transition: 0.3s;
+  transition: all 0.3s ease;
   width: 50%;
+  padding: 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
+  background: rgba(20, 157, 221, 0.95);
+  transform: scale(1.05);
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
   background: rgba(20, 157, 221, 0.95);
 }
 
@@ -970,5 +1068,273 @@ section {
     position: static;
     width: auto;
     padding-right: 20px 15px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Additional Accessibility & UI Improvements
+--------------------------------------------------------------*/
+
+/* Improved card styling for portfolio items */
+.portfolio .card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio .card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio .card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.portfolio .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.portfolio .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #173b6c;
+}
+
+.portfolio .card-text {
+  flex: 1;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Better focus indicators for all interactive elements */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #149ddd;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Improved color contrast for better readability */
+.about .content p,
+.resume .resume-item p,
+.portfolio .card-text {
+  color: #444;
+  line-height: 1.7;
+}
+
+/* Better spacing for sections */
+section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+}
+
+/* Improved skills list styling */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.skills-list li:hover {
+  transform: translateX(4px);
+}
+
+.skills-list li i {
+  margin-right: 8px;
+  color: #149ddd;
+  font-size: 0.9rem;
+}
+
+/* Better contact section styling */
+.contact .info {
+  padding: 30px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+
+.contact .info i {
+  font-size: 20px;
+  color: #149ddd;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #e7f5fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #173b6c;
+}
+
+.contact .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.contact .info .email p a {
+  color: #149ddd;
+  text-decoration: none;
+}
+
+.contact .info .email p a:hover {
+  text-decoration: underline;
+}
+
+/* Improved image loading and accessibility */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[alt] {
+  font-size: 0.875rem;
+}
+
+/* Better link styling in content */
+.about .content a,
+.resume .resume-item a {
+  color: #149ddd;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.about .content a:hover,
+.resume .resume-item a:hover {
+  color: #37b3ed;
+  text-decoration-thickness: 2px;
+}
+
+.about .content a:focus-visible,
+.resume .resume-item a:focus-visible {
+  outline: 2px solid #149ddd;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Improved section titles */
+.section-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #173b6c;
+}
+
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 28px;
+  }
+}
+
+/* Better resume item styling */
+.resume .resume-item {
+  padding: 0 0 25px 25px;
+  margin-top: -2px;
+  border-left: 3px solid #149ddd;
+  position: relative;
+}
+
+.resume .resume-item::before {
+  width: 18px;
+  height: 18px;
+  left: -10px;
+  border: 3px solid #149ddd;
+}
+
+/* Improved footer links */
+#footer .credits a {
+  color: #eaebf0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#footer .credits a:hover {
+  color: #149ddd;
+}
+
+#footer .credits a:focus-visible {
+  outline: 2px solid #149ddd;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Better mobile navigation */
+@media (max-width: 1199px) {
+  #header {
+    left: -300px;
+    transition: left 0.3s ease;
+  }
+
+  .mobile-nav-active #header {
+    left: 0;
+  }
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  a {
+    text-decoration: underline;
+  }
+
+  .section-title h2::after {
+    height: 4px;
   }
 }

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="theme-color" content="#149ddd">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -38,34 +39,39 @@
 
 <body>
 
+  <!-- ======= Skip to main content link (for accessibility) ======= -->
+  <a href="#main" class="skip-to-main-content">Skip to main content</a>
+
   <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar">
+    <i class="bi bi-list" aria-hidden="true"></i>
+  </button>
 
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/SinchanaImg.JPG" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Sinchana G V</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://www.linkedin.com/in/sinchana-gupta/" rel="noopener noreferrer" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/sinchanagv24" rel="noopener noreferrer" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-          <a href="mailto:sinchanagv24@gmail.com" rel="noopener noreferrer" target="_blank" class="email"><i class="bx bx-mail-send"></i></a>
-          <a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" rel="noopener noreferrer" target="_blank" class="Resume"><i class="fas fa-file-pdf"></i></a>
+        <img src="assets/img/SinchanaImg.JPG" alt="Sinchana G V - Data Scientist and ML Engineer" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html" aria-label="Home - Sinchana G V">Sinchana G V</a></h1>
+        <div class="social-links mt-3 text-center" role="list" aria-label="Social media links">
+          <a href="https://www.linkedin.com/in/sinchana-gupta/" rel="noopener noreferrer" target="_blank" class="linkedin" aria-label="Visit my LinkedIn profile"><i class="bx bxl-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
+          <a href="https://github.com/sinchanagv24" rel="noopener noreferrer" target="_blank" class="github" aria-label="Visit my GitHub profile"><i class="bx bxl-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
+          <a href="mailto:sinchanagv24@gmail.com" rel="noopener noreferrer" target="_blank" class="email" aria-label="Send me an email"><i class="bx bx-mail-send" aria-hidden="true"></i><span class="sr-only">Email</span></a>
+          <a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" rel="noopener noreferrer" target="_blank" class="Resume" aria-label="Download my resume"><i class="fas fa-file-pdf" aria-hidden="true"></i><span class="sr-only">Resume</span></a>
         </div>
       </div>
 
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About Me</span></a></li>
-          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-cog"></i> <span>Skills</span></a></li>
-          <li><a href="#background" class="nav-link scrollto"><i class="bx bx-building"></i> <span>Background</span></a></li>
-          <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
-          <li><a href="#awards" class="nav-link scrollto"><i class="bx bx-award"></i> <span>Awards</span></a></li>
-          <li><a href="#hobbies" class="nav-link scrollto"><i class="bx bx-ball"></i> <span>Hobbies</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+      <nav id="navbar" class="nav-menu navbar" role="navigation" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="#hero" class="nav-link scrollto active" aria-label="Go to Home section"><i class="bx bx-home" aria-hidden="true"></i> <span>Home</span></a></li>
+          <li><a href="#about" class="nav-link scrollto" aria-label="Go to About Me section"><i class="bx bx-user" aria-hidden="true"></i> <span>About Me</span></a></li>
+          <li><a href="#skills" class="nav-link scrollto" aria-label="Go to Skills section"><i class="bx bx-cog" aria-hidden="true"></i> <span>Skills</span></a></li>
+          <li><a href="#background" class="nav-link scrollto" aria-label="Go to Background section"><i class="bx bx-building" aria-hidden="true"></i> <span>Background</span></a></li>
+          <li><a href="#projects" class="nav-link scrollto" aria-label="Go to Projects section"><i class="bx bx-book-content" aria-hidden="true"></i> <span>Projects</span></a></li>
+          <li><a href="#awards" class="nav-link scrollto" aria-label="Go to Awards section"><i class="bx bx-award" aria-hidden="true"></i> <span>Awards</span></a></li>
+          <li><a href="#hobbies" class="nav-link scrollto" aria-label="Go to Hobbies section"><i class="bx bx-ball" aria-hidden="true"></i> <span>Hobbies</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto" aria-label="Go to Contact section"><i class="bx bx-envelope" aria-hidden="true"></i> <span>Contact</span></a></li>
         </ul>
       </nav>
     </div>
@@ -91,28 +97,28 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/SG.JPEG" class="img-fluid" alt="Sinchana Gupta Garla Venkatesha">
+            <img src="assets/img/SG.JPEG" class="img-fluid" alt="Sinchana G V - Professional portrait">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <p align="justify">
+            <p>
               <strong>I build AI systems that work in production, not just in notebooks.</strong>
             </p>
-            <p align="justify">
+            <p>
               <em>Legal name: Sinchana Gupta Garla Venkatesha</em>
             </p>
-            <p align="justify">
-              Currently at <a href="https://www.connyct.com" target="_blank"><strong>Connyct Inc.</strong></a>, I engineer production AI workflows that automate enterprise processes. I recently built an AI-powered invoice processing system using RedisVL and LLMs that reduced manual review time by 60%, earning 3rd place in the Redis VL Innovator category at the MCP Hackathon.
+            <p>
+              Currently at <a href="https://www.connyct.com" target="_blank" rel="noopener noreferrer"><strong>Connyct Inc.</strong></a>, I engineer production AI workflows that automate enterprise processes. I recently built an AI-powered invoice processing system using RedisVL and LLMs that reduced manual review time by 60%, earning 3rd place in the Redis VL Innovator category at the MCP Hackathon.
             </p>
-            <p align="justify">
-              Previously at <a href="https://www.mann-hummel.com/en.html" target="_blank"><strong>Mann+Hummel</strong></a>, I deployed 10+ interactive dashboards that improved decision-making by 20% and automated ETL workflows that saved 15+ hours weekly. At <a href="https://www.accenture.com" target="_blank"><strong>Accenture</strong></a>, I analyzed failure patterns across 10,000+ vehicle registrations and improved system reliability from 60% to over 90%, saving an estimated €2M+ annually in operational costs.
+            <p>
+              Previously at <a href="https://www.mann-hummel.com/en.html" target="_blank" rel="noopener noreferrer"><strong>Mann+Hummel</strong></a>, I deployed 10+ interactive dashboards that improved decision-making by 20% and automated ETL workflows that saved 15+ hours weekly. At <a href="https://www.accenture.com" target="_blank" rel="noopener noreferrer"><strong>Accenture</strong></a>, I analyzed failure patterns across 10,000+ vehicle registrations and improved system reliability from 60% to over 90%, saving an estimated €2M+ annually in operational costs.
             </p>
-            <p align="justify">
+            <p>
               I hold an <strong>MS in Data Science from University of Maryland (GPA: 3.81/4.00)</strong> and specialize in building scalable data pipelines, deploying ML models, and turning complex data into automated business decisions.
             </p>
-            <p align="justify">
+            <p>
               <strong>I'm actively seeking full-time Data Science and ML Engineering roles starting June 2025.</strong>
             </p>
-            <p align="justify">
+            <p>
               When I'm not coding, you'll find me hiking, discovering unique coffee shops, or solving sudoku puzzles. I'm learning Japanese while watching anime, with <em>Case Closed</em> as my favorite.
             </p>
           </div>
@@ -258,20 +264,20 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/InvoiceAgent.png" alt="InvoiceAgent">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/InvoiceAgent.png" alt="Invoice Agent AI-powered X12 processing system interface">
               <div class="card-body">
                 <h5 class="card-title">Invoice Agent: AI-Powered X12 Processing</h5>
                 <p class="card-text"><strong>🏆 3rd Place - Redis VL Innovator, MCP Hackathon</strong><br><br>Built an end-to-end AI workflow that automates EDI X12 invoice validation using RedisVL vector search and LLMs. Reduced manual review time by 60% with 85% accuracy in anomaly detection.</p>
               </div>
               <div class="portfolio-links">
-                <a href="https://github.com/sinchanagv24/invoice-agent-x12-starter" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
+                <a href="https://github.com/sinchanagv24/invoice-agent-x12-starter" target="_blank" rel="noopener noreferrer" title="View Invoice Agent project on GitHub" aria-label="View Invoice Agent project on GitHub"><i class="bx bx-link" aria-hidden="true"></i><span class="sr-only">View on GitHub</span></a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/MMDrift.png" alt="MMDrift">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/MMDrift.png" alt="Multimodal Data Drift Detector dashboard showing statistical analysis">
               <div class="card-body">
                 <h5 class="card-title">Multimodal Data Drift Detector</h5>
                 <p class="card-text">Streamlit application that detects statistical drift in production data and uses multimodal context (release notes, screenshots, logs) to explain why metrics changed. Combines statistical analysis with LLM-powered explanations.</p>
@@ -284,7 +290,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Snowflake.png" alt="Snowflake">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/Snowflake.png" alt="Real-time Bitcoin data pipeline architecture diagram">
               <div class="card-body">
                 <h5 class="card-title">Real-Time Bitcoin Data Pipeline</h5>
                 <p class="card-text">Production-grade real-time pipeline using Python, Snowflake, AWS S3, and Snowpipe with less than 10 second latency. Architected event-driven ingestion with AWS Lambda, achieving 8-second average latency. Enabled 4x faster data availability vs traditional batch ETL.</p>
@@ -297,7 +303,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Customer_churn_AWS.png" alt="AWS Churn">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/Customer_churn_AWS.png" alt="Customer churn prediction model dashboard on AWS">
               <div class="card-body">
                 <h5 class="card-title">Customer Churn Prediction on AWS</h5>
                 <p class="card-text">End-to-end ML pipeline on AWS that predicts customer churn 30 days in advance with 82% F1 score. Deployed ensemble models on SageMaker with automated nightly batch inference scoring 100K+ customers.</p>
@@ -310,7 +316,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Poetic_device.png" alt="Mistral 7B">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/Poetic_device.png" alt="Poetic device classifier using LLMs interface">
               <div class="card-body">
                 <h5 class="card-title">Poetic Device Classifier Using LLMs</h5>
                 <p class="card-text">Fine-tuned Mistral 7B on 13,900 annotated poetry stanzas using LoRA, achieving 20% performance improvement (eval loss from 0.55 to 0.42). Integrated FAISS vector search and GPT-based explanations. Processes 1,000+ stanzas per minute with 89% F1 score.</p>
@@ -323,7 +329,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/DC_Metro.png" alt="DC Metro">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/DC_Metro.png" alt="DC Metro ridership analytics dashboard with forecasting">
               <div class="card-body">
                 <h5 class="card-title">DC Metro Ridership Analytics</h5>
                 <p class="card-text">Analyzed 3+ years of WMATA ridership data (10M+ entries) to identify patterns. Built interactive Plotly dashboards and ARIMA forecasting model with 85% accuracy. Provides trip planning insights that reduce wait times by estimated 8-12 minutes during peak hours.</p>
@@ -336,7 +342,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Plant_dis.png" alt="Plant Disease">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/Plant_dis.png" alt="Plant disease classification CNN model results">
               <div class="card-body">
                 <h5 class="card-title">Plant Disease Classification Using CNNs</h5>
                 <p class="card-text">Deep learning model that classifies potato plant diseases with 95% validation accuracy. Built using TensorFlow and Keras with transfer learning from ResNet50. Optimized for mobile deployment using TensorFlow Lite with less than 100ms inference time.</p>
@@ -349,7 +355,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Flight_Delay.png" alt="Flight Delay">
+              <img class="card-img-top img-fluid" src="assets/img/portfolio/Flight_Delay.png" alt="Flight delay prediction and analysis dashboard">
               <div class="card-body">
                 <h5 class="card-title">Flight Delay Prediction and Analysis</h5>
                 <p class="card-text">API-driven analysis of flight delay patterns at busiest global airports. Trained Random Forest and XGBoost models to predict delays. Built interactive dashboards that improved travel decision-making and reduced disruptions by 20%.</p>
@@ -374,13 +380,13 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/mcp-ai-hackathon.png" class="img-fluid" alt="Hackathon Award">
+            <img src="assets/img/mcp-ai-hackathon.png" class="img-fluid" alt="MCP AI Hackathon 3rd Place Award Certificate">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>3rd Place - Redis VL Innovator Category</h3>
             <h5>September 2025</h5>
             <h5>MCP AI Hackathon</h5>
-            <p align="justify">
+            <p>
               Awarded for building an AI-powered invoice processing agent that automates X12 to ERP workflows using RedisVL vector search, semantic matching, and real-time anomaly detection.
             </p>
           </div>
@@ -390,17 +396,17 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/apex.png" class="img-fluid" alt="Apex Award">
+            <img src="assets/img/apex.png" class="img-fluid" alt="Accenture Apex Award Winner Certificate">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Apex Award Winner</h3>
             <h5>May 2023</h5>
             <h5>Issued by Accenture, India</h5>
-            <p align="justify">
+            <p>
               Recognition award for outstanding performance and measurable business impact. Honored for improving system reliability from 60% to 90%+ through data-driven optimization.
             </p>
             <div class="portfolio-links">
-              <a href="https://www.linkedin.com/in/sinchana-gupta/overlay/1748836508300/single-media-viewer/?profileId=ACoAACWXN6wBgZJlGPuzGsqfh7ZuCbrll87QYjg" target="_blank" title="View Certificate"><i class="bx bx-link"></i> Certificate</a>
+              <a href="https://www.linkedin.com/in/sinchana-gupta/overlay/1748836508300/single-media-viewer/?profileId=ACoAACWXN6wBgZJlGPuzGsqfh7ZuCbrll87QYjg" target="_blank" rel="noopener noreferrer" title="View Apex Award Certificate" aria-label="View Apex Award Certificate on LinkedIn"><i class="bx bx-link" aria-hidden="true"></i> Certificate</a>
             </div>
           </div>
         </div>
@@ -409,17 +415,17 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/Client_Value.png" class="img-fluid" alt="Client Value">
+            <img src="assets/img/Client_Value.png" class="img-fluid" alt="Accenture Client Value Creation Award Certificate">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Client Value Creation Award</h3>
             <h5>December 2022</h5>
             <h5>Issued by Accenture, India</h5>
-            <p align="justify">
+            <p>
               Recognized for creating significant impact on client outcomes. Awarded for identifying root causes of registration failures and reducing operational costs by an estimated €2M+ annually for Nissan EU.
             </p>
             <div class="portfolio-links">
-              <a href="https://www.linkedin.com/in/sinchana-gupta/overlay/1748839205840/single-media-viewer/?profileId=ACoAACWXN6wBgZJlGPuzGsqfh7ZuCbrll87QYjg" target="_blank" title="View Certificate"><i class="bx bx-link"></i> Certificate</a>
+              <a href="https://www.linkedin.com/in/sinchana-gupta/overlay/1748839205840/single-media-viewer/?profileId=ACoAACWXN6wBgZJlGPuzGsqfh7ZuCbrll87QYjg" target="_blank" rel="noopener noreferrer" title="View Client Value Creation Award Certificate" aria-label="View Client Value Creation Award Certificate on LinkedIn"><i class="bx bx-link" aria-hidden="true"></i> Certificate</a>
             </div>
           </div>
         </div>
@@ -437,13 +443,13 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/Sinchana_cafe.png" class="img-fluid" alt="Sinchana Gupta">
+            <img src="assets/img/Sinchana_cafe.png" class="img-fluid" alt="Sinchana G V at a coffee shop">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <p align="justify">
+            <p>
               I recharge through hiking (recently explored Sky Meadows State Park), discovering unique coffee shops around the Bay Area, and solving sudoku puzzles. After a long hike, you'll find me at a local café trying everything from strong cold brews to creamy cappuccinos.
             </p>
-            <p align="justify">
+            <p>
               When I'm at home, I'm immersed in Korean dramas and anime. <em>Case Closed</em> is my all-time favorite for its clever mysteries. I'm learning Japanese as a beginner, and it's fun picking up words while watching. In quieter moments, I enjoy solving sudoku puzzles or getting lost in a good mystery novel. These hobbies fuel my curiosity and love for problem-solving.
             </p>
           </div>
@@ -467,21 +473,21 @@
           <div class="col-lg-12 d-flex align-items-stretch">
             <div class="info">
               <div class="address">
-                <i class="bi bi-geo-alt"></i>
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
                 <h4>Location:</h4>
                 <p>San Francisco Bay Area, CA</p>
               </div>
 
               <div class="email">
-                <i class="bi bi-envelope"></i>
+                <i class="bi bi-envelope" aria-hidden="true"></i>
                 <h4>Email:</h4>
-                <p>sinchanagv24@gmail.com</p>
+                <p><a href="mailto:sinchanagv24@gmail.com" aria-label="Send email to sinchanagv24@gmail.com">sinchanagv24@gmail.com</a></p>
               </div>
 
               <div class="phone">
-                <i class="bi bi-file-pdf"></i>
+                <i class="bi bi-file-pdf" aria-hidden="true"></i>
                 <h4>Resume:</h4>
-                <p><a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" target="_blank">Download PDF</a></p>
+                <p><a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Download resume PDF">Download PDF</a></p>
               </div>
             </div>
           </div>
@@ -504,7 +510,7 @@
     </div>
   </footer>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i><span class="sr-only">Back to top</span></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

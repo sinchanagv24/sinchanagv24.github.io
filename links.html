@@ -1,73 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sinchana G V | Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg:        #F0EDF8;
+      --orb1:      rgba(178,157,235,0.55);
+      --orb2:      rgba(147,197,221,0.45);
+      --orb3:      rgba(235,179,200,0.4);
+      --glass:     rgba(255,255,255,0.55);
+      --glass-b:   rgba(255,255,255,0.75);
+      --glass-bdr: rgba(255,255,255,0.8);
+      --text:      #1E1B2E;
+      --text-2:    #4A4560;
+      --muted:     #8B87A8;
+      --accent:    #6B52C8;
+      --accent-2:  #C852A0;
+      --pill-bg:   rgba(255,255,255,0.6);
+      --pill-bdr:  rgba(107,82,200,0.2);
+      --shadow:    0 8px 32px rgba(107,82,200,0.12);
+      --shadow-lg: 0 20px 60px rgba(107,82,200,0.18);
+    }
+    [data-theme="dark"] {
+      --bg:        #0F0D1A;
+      --orb1:      rgba(100,70,180,0.4);
+      --orb2:      rgba(40,110,160,0.35);
+      --orb3:      rgba(160,50,120,0.3);
+      --glass:     rgba(255,255,255,0.05);
+      --glass-b:   rgba(255,255,255,0.08);
+      --glass-bdr: rgba(255,255,255,0.12);
+      --text:      #EDE9FF;
+      --text-2:    #B8B0D8;
+      --muted:     #6B6590;
+      --accent:    #9D82F0;
+      --accent-2:  #F07EC0;
+      --pill-bg:   rgba(255,255,255,0.06);
+      --pill-bdr:  rgba(157,130,240,0.25);
+      --shadow:    0 8px 32px rgba(0,0,0,0.4);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Inter", Arial, sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
-      text-align: center;
-      margin: 0;
-      padding: 40px 20px;
+      font-family: 'Geist', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 24px;
+      transition: background 0.4s, color 0.3s;
+      overflow-x: hidden;
     }
+    a { text-decoration: none; color: inherit; }
+
+    /* ORBS */
+    .orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: drift 18s ease-in-out infinite; }
+    .orb-1 { width: 500px; height: 500px; background: var(--orb1); top: -150px; left: -100px; animation-delay: 0s; }
+    .orb-2 { width: 400px; height: 400px; background: var(--orb2); bottom: -100px; right: -100px; animation-delay: -6s; }
+    .orb-3 { width: 350px; height: 350px; background: var(--orb3); top: 50%; left: -50px; animation-delay: -12s; }
+    @keyframes drift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(30px,-40px) scale(1.05); }
+      66%      { transform: translate(-20px,25px) scale(0.97); }
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle {
+      position: fixed; top: 20px; right: 20px; z-index: 200;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--glass-b); border: 1px solid var(--glass-bdr);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--text-2);
+      transition: background 0.2s; box-shadow: var(--shadow);
+    }
+    .theme-toggle:hover { background: var(--glass); }
+
+    /* CARD */
+    .card {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 440px;
+      background: var(--glass-b);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 28px;
+      padding: 40px 36px 32px;
+      box-shadow: var(--shadow-lg);
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    /* STATUS PILL */
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 500; color: var(--accent);
+      background: var(--pill-bg); border: 1px solid var(--pill-bdr);
+      padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .pulse {
+      width: 6px; height: 6px; border-radius: 50%; background: #4ADE80;
+      animation: sonar 2s ease-out infinite;
+    }
+    @keyframes sonar {
+      0%  { box-shadow: 0 0 0 0 rgba(74,222,128,0.6); }
+      70% { box-shadow: 0 0 0 7px rgba(74,222,128,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+    }
+
+    /* HEADER */
     h1 {
-      font-size: 1.8em;
-      margin-bottom: 0.3em;
+      font-family: 'Fraunces', serif;
+      font-size: 2.4rem; font-weight: 700;
+      line-height: 1; letter-spacing: -0.02em; margin-bottom: 6px;
     }
-    p {
-      color: #6b7280;
-      font-size: 1em;
-      margin-bottom: 1.8em;
+    h1 em { font-style: italic; font-weight: 300; color: var(--accent); }
+    .tagline { font-size: 0.82rem; font-weight: 300; color: var(--text-2); margin-bottom: 4px; text-align: center; line-height: 1.5; }
+    .legal { font-size: 0.72rem; color: var(--muted); margin-bottom: 32px; font-style: italic; }
+
+    /* DIVIDER */
+    .divider { width: 100%; height: 1px; background: var(--glass-bdr); margin: 8px 0 20px; }
+    .group-label {
+      font-size: 0.65rem; font-weight: 500; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      align-self: flex-start; margin-bottom: 10px; margin-top: 4px;
     }
+
+    /* LINK BUTTONS */
     .link-btn {
-      display: block;
-      background-color: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 10px;
-      margin: 12px auto;
-      width: 90%;
-      max-width: 400px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
+      display: flex; align-items: center; gap: 14px;
+      width: 100%; padding: 13px 18px; border-radius: 14px; margin-bottom: 10px;
+      background: var(--glass); border: 1px solid var(--glass-bdr);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-size: 0.88rem; font-weight: 500; color: var(--text);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: var(--shadow);
     }
-    .link-btn:hover {
-      background-color: #1d4ed8;
+    .link-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); background: var(--glass-b); }
+    .btn-icon {
+      width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #fff;
+      box-shadow: 0 3px 10px rgba(107,82,200,0.3);
     }
-    .resume-group {
-      margin-top: 1.5em;
-    }
-    .footer {
-      margin-top: 3em;
-      font-size: 0.9em;
-      color: #9ca3af;
-    }
+    .btn-text { display: flex; flex-direction: column; gap: 1px; }
+    .btn-label { font-size: 0.7rem; color: var(--muted); font-weight: 400; }
+    .btn-title { font-size: 0.86rem; font-weight: 500; color: var(--text); }
+    .resume-group { width: 100%; }
+
+    /* FOOTER */
+    .footer { margin-top: 28px; font-size: 0.72rem; color: var(--muted); font-weight: 300; text-align: center; }
   </style>
 </head>
 <body>
-  <h1>Sinchana G V</h1>
-  <p>Data Science | Machine Learning | Analytics | AI Solutions</p>
-  <p style="font-size: 0.9em; color: #9ca3af; margin-top: -1em; margin-bottom: 1.5em;"><em>Legal name: Sinchana Gupta Garla Venkatesha</em></p>
 
-  <a href="https://sinchanagv24.github.io" class="link-btn">🌐 Portfolio Website</a>
-  <a href="https://github.com/sinchanagv24" class="link-btn">💻 GitHub</a>
-  <a href="https://www.linkedin.com/in/sinchana-gupta/" class="link-btn">🔗 LinkedIn</a>
+<div class="orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀</button>
+
+<div class="card">
+  <div class="status-pill"><span class="pulse"></span>Open to Work</div>
+
+  <h1>Sinchana <em>G V</em></h1>
+  <p class="tagline">Data Science · Machine Learning · Analytics · AI</p>
+  <p class="legal">Legal name: Sinchana Gupta Garla Venkatesha</p>
+
+  <a href="https://sinchanagv24.github.io" class="link-btn">
+    <div class="btn-icon">🌐</div>
+    <div class="btn-text"><span class="btn-label">Website</span><span class="btn-title">Portfolio</span></div>
+  </a>
+  <a href="https://github.com/sinchanagv24" target="_blank" class="link-btn">
+    <div class="btn-icon" style="font-size:0.8rem;font-weight:700;">GH</div>
+    <div class="btn-text"><span class="btn-label">Code</span><span class="btn-title">GitHub</span></div>
+  </a>
+  <a href="https://www.linkedin.com/in/sinchana-gupta/" target="_blank" class="link-btn">
+    <div class="btn-icon" style="font-size:0.78rem;font-weight:700;">in</div>
+    <div class="btn-text"><span class="btn-label">Professional</span><span class="btn-title">LinkedIn</span></div>
+  </a>
+
+  <div class="divider"></div>
+  <div class="group-label">Resumes</div>
 
   <div class="resume-group">
-    
-    <a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" class="link-btn">🔥 Master CV</a>
-    <a href="https://drive.google.com/file/d/1W0I8xhKqS9yBCbYuOHPynl81aXnf35k-/view?usp=share_link" class="link-btn">📊 Resume - Data Analyst</a>
-    <a href="https://drive.google.com/file/d/1KYTUI9DYXl5CZD31mtk1OSKxAk4JerSU/view?usp=share_link" class="link-btn">🤖 Resume - ML & AI Roles</a>
+    <a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" target="_blank" class="link-btn">
+      <div class="btn-icon">🔥</div>
+      <div class="btn-text"><span class="btn-label">Full Resume</span><span class="btn-title">Master CV</span></div>
+    </a>
+    <a href="https://drive.google.com/file/d/1W0I8xhKqS9yBCbYuOHPynl81aXnf35k-/view?usp=share_link" target="_blank" class="link-btn">
+      <div class="btn-icon">📊</div>
+      <div class="btn-text"><span class="btn-label">Tailored Resume</span><span class="btn-title">Data Analyst</span></div>
+    </a>
+    <a href="https://drive.google.com/file/d/1KYTUI9DYXl5CZD31mtk1OSKxAk4JerSU/view?usp=share_link" target="_blank" class="link-btn">
+      <div class="btn-icon">🤖</div>
+      <div class="btn-text"><span class="btn-label">Tailored Resume</span><span class="btn-title">ML &amp; AI Roles</span></div>
+    </a>
   </div>
 
-  <a href="mailto:sinchanagv24@gmail.com" class="link-btn">📧 Contact Me</a>
+  <div class="divider"></div>
 
-  <div class="footer">
-    © 2025 Sinchana G V | Hosted on GitHub Pages
-  </div>
+  <a href="mailto:sinchanagv24@gmail.com" class="link-btn">
+    <div class="btn-icon">✉</div>
+    <div class="btn-text"><span class="btn-label">Email</span><span class="btn-title">sinchanagv24@gmail.com</span></div>
+  </a>
+
+  <p class="footer">© 2026 Sinchana G V · Hosted on GitHub Pages</p>
+</div>
+
+<script>
+  const btn = document.getElementById('themeBtn');
+  function toggleTheme() {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+    btn.textContent = dark ? '☀' : '☾';
+  }
+</script>
 </body>
 </html>

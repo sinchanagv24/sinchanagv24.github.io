@@ -1,537 +1,957 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="theme-color" content="#149ddd">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-6EHSCDTYJL');
-  </script>
-  <title>Sinchana G V - Data Scientist & ML Engineer</title>
-  <meta content="Data Scientist and ML Engineer building production AI systems. MS in Data Science from University of Maryland." name="description">
-  <meta content="data science, machine learning, AI engineer, python, AWS, Sinchana GV" name="keywords">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinchana G V | Data Analyst · Data Scientist · Business Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
 
-  <!-- Favicons -->
-  <link href="assets/img/flat-line-robot-machine-icon-symbol-sign-logo-vector-26602562.jpg" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    /* ═══ TOKENS ═══════════════════════════════════════════ */
+    :root {
+      --bg:         #F0EDF8;
+      --bg-b:       #E8E3F5;
+      --orb1:       rgba(178,157,235,0.55);
+      --orb2:       rgba(147,197,221,0.45);
+      --orb3:       rgba(235,179,200,0.4);
+      --orb4:       rgba(168,220,190,0.35);
+      --glass:      rgba(255,255,255,0.55);
+      --glass-b:    rgba(255,255,255,0.75);
+      --glass-bdr:  rgba(255,255,255,0.8);
+      --text:       #1E1B2E;
+      --text-2:     #4A4560;
+      --muted:      #8B87A8;
+      --accent:     #6B52C8;
+      --accent-2:   #C852A0;
+      --pill-bg:    rgba(255,255,255,0.6);
+      --pill-bdr:   rgba(107,82,200,0.2);
+      --shadow:     0 8px 32px rgba(107,82,200,0.12);
+      --shadow-lg:  0 20px 60px rgba(107,82,200,0.18);
+    }
+    [data-theme="dark"] {
+      --bg:         #0F0D1A;
+      --bg-b:       #160F2A;
+      --orb1:       rgba(100,70,180,0.4);
+      --orb2:       rgba(40,110,160,0.35);
+      --orb3:       rgba(160,50,120,0.3);
+      --orb4:       rgba(40,140,100,0.25);
+      --glass:      rgba(255,255,255,0.05);
+      --glass-b:    rgba(255,255,255,0.08);
+      --glass-bdr:  rgba(255,255,255,0.12);
+      --text:       #EDE9FF;
+      --text-2:     #B8B0D8;
+      --muted:      #6B6590;
+      --accent:     #9D82F0;
+      --accent-2:   #F07EC0;
+      --pill-bg:    rgba(255,255,255,0.06);
+      --pill-bdr:   rgba(157,130,240,0.25);
+      --shadow:     0 8px 32px rgba(0,0,0,0.4);
+      --shadow-lg:  0 20px 60px rgba(0,0,0,0.5);
+    }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    /* ═══ BASE ══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Geist', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.3s;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    /* ═══ AMBIENT ORBS ══════════════════════════════════════ */
+    .orbs {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      overflow: hidden;
+    }
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); animation: drift 18s ease-in-out infinite;
+    }
+    .orb-1 { width: 600px; height: 600px; background: var(--orb1); top: -200px; left: -100px; animation-delay: 0s; }
+    .orb-2 { width: 500px; height: 500px; background: var(--orb2); top: 20%; right: -150px; animation-delay: -6s; }
+    .orb-3 { width: 450px; height: 450px; background: var(--orb3); bottom: 10%; left: 20%; animation-delay: -12s; }
+    .orb-4 { width: 350px; height: 350px; background: var(--orb4); bottom: 30%; right: 10%; animation-delay: -9s; }
+    @keyframes drift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(30px,-40px) scale(1.05); }
+      66%      { transform: translate(-20px, 25px) scale(0.97); }
+    }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    /* ═══ NAV ════════════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 300;
+      background: var(--glass-b);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 999px;
+      padding: 10px 24px;
+      display: flex; align-items: center; gap: 6px;
+      box-shadow: var(--shadow);
+    }
+    nav a {
+      font-size: 0.78rem; font-weight: 500; color: var(--muted);
+      padding: 6px 14px; border-radius: 999px;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    nav a:hover { color: var(--text); background: var(--glass); }
+    nav a.active {
+      color: var(--accent); background: var(--pill-bg);
+      border: 1px solid var(--pill-bdr);
+    }
+    .nav-divider {
+      width: 1px; height: 18px;
+      background: var(--glass-bdr); flex-shrink: 0;
+    }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-status {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; color: var(--muted); white-space: nowrap;
+    }
+    .nav-status .pulse {
+      width: 7px; height: 7px; border-radius: 50%; background: #4ADE80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,0.6);
+      animation: sonar 2s ease-out infinite;
+    }
+    @keyframes sonar {
+      0%  { box-shadow: 0 0 0 0 rgba(74,222,128,0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+    }
+    .theme-toggle {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--glass); border: 1px solid var(--glass-bdr);
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 1rem;
+      transition: background 0.2s; color: var(--text-2);
+    }
+    .theme-toggle:hover { background: var(--glass-b); }
+
+    /* ═══ LAYOUT ════════════════════════════════════════════ */
+    main { position: relative; z-index: 1; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    /* ═══ GLASS CARD ════════════════════════════════════════ */
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .glass-strong {
+      background: var(--glass-b);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ═══ HERO ═══════════════════════════════════════════════ */
+    #home {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 500; color: var(--accent);
+      background: var(--pill-bg); border: 1px solid var(--pill-bdr);
+      padding: 6px 16px; border-radius: 999px;
+      margin-bottom: 36px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-name {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(4.5rem, 11vw, 9rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero-name .italic { font-style: italic; font-weight: 300; color: var(--accent); }
+    .hero-role {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 300; font-style: italic;
+      color: var(--text-2); margin-bottom: 32px;
+    }
+    .hero-bio {
+      font-size: 1rem; font-weight: 300; line-height: 1.75;
+      color: var(--text-2); max-width: 560px; margin: 0 auto 48px;
+    }
+    .hero-bio strong { font-weight: 500; color: var(--text); }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-glow {
+      padding: 13px 28px; border-radius: 999px;
+      font-size: 0.88rem; font-weight: 500;
+      cursor: pointer; border: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(107,82,200,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(107,82,200,0.5); }
+    .btn-ghost {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-bdr);
+      color: var(--text);
+    }
+    .btn-ghost:hover { background: var(--glass-b); transform: translateY(-2px); }
+
+    /* hero stat strip */
+    .hero-stats {
+      display: flex; gap: 0;
+      margin-top: 64px;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .h-stat {
+      flex: 1; padding: 24px 28px; text-align: center;
+      border-right: 1px solid var(--glass-bdr);
+    }
+    .h-stat:last-child { border-right: none; }
+    .h-stat-val {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem; font-weight: 700; color: var(--accent);
+      line-height: 1; margin-bottom: 6px;
+    }
+    .h-stat-lbl { font-size: 0.75rem; font-weight: 400; color: var(--muted); }
+
+    /* ═══ SECTION SHARED ════════════════════════════════════ */
+    section { padding: 100px 0; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-tag::before {
+      content: ''; width: 20px; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 2px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.015em; margin-bottom: 56px;
+    }
+    .section-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+
+    /* ═══ FEATURED WORK ═════════════════════════════════════ */
+    #home .wrap { width: 100%; max-width: 1100px; }
+    .featured-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px; margin-top: 64px;
+    }
+    .feat-card {
+      padding: 28px 30px; border-radius: 22px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+    }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feat-card.big { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+    .feat-num { font-size: 0.68rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 12px; }
+    .feat-card h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 500; line-height: 1.3; margin-bottom: 8px; }
+    .feat-card.big h3 { font-size: 1.5rem; }
+    .feat-card p { font-size: 0.82rem; color: var(--text-2); line-height: 1.6; font-weight: 300; }
+    .feat-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.68rem; font-weight: 500;
+      background: linear-gradient(135deg, rgba(107,82,200,0.15), rgba(200,82,160,0.12));
+      color: var(--accent); border: 1px solid var(--pill-bdr);
+      padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .feat-impact {
+      font-size: 0.78rem; font-weight: 500; color: var(--text-2);
+      background: var(--pill-bg); border: 1px solid var(--glass-bdr);
+      padding: 6px 14px; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px;
+    }
+    .feat-impact .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .feat-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .ftag {
+      font-size: 0.68rem; font-weight: 400; color: var(--muted);
+      background: var(--pill-bg); border: 1px solid var(--glass-bdr);
+      padding: 3px 10px; border-radius: 999px;
+    }
+
+    /* ═══ ABOUT ══════════════════════════════════════════════ */
+    #about .inner {
+      display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start;
+    }
+    .about-photo-wrap { position: relative; }
+    .about-photo {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: top;
+      border-radius: 20px;
+      border: 1px solid var(--glass-bdr);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-float-card {
+      position: absolute; bottom: -16px; right: -20px;
+      padding: 14px 18px; border-radius: 16px;
+      font-size: 0.8rem; font-weight: 500; color: var(--accent);
+      white-space: nowrap;
+    }
+    .about-float-card .val {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem; font-weight: 700; display: block; line-height: 1;
+    }
+    .about-text p {
+      font-size: 0.95rem; font-weight: 300; line-height: 1.8;
+      color: var(--text-2); margin-bottom: 16px;
+    }
+    .about-text p strong { font-weight: 500; color: var(--text); }
+    .about-meta-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px;
+    }
+    .meta-chip {
+      padding: 14px 18px; border-radius: 14px;
+    }
+    .meta-chip-label { font-size: 0.66rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .meta-chip-val { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+
+    /* ═══ SKILLS ═════════════════════════════════════════════ */
+    #skills .skills-wrap {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .skill-row {
+      padding: 22px 28px; border-radius: 18px;
+      display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center;
+      transition: transform 0.2s;
+    }
+    .skill-row:hover { transform: translateX(4px); }
+    .skill-cat {
+      font-size: 0.8rem; font-weight: 500; color: var(--text-2);
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .spill {
+      font-size: 0.75rem; font-weight: 400; color: var(--text-2);
+      background: var(--pill-bg); border: 1px solid var(--glass-bdr);
+      padding: 5px 13px; border-radius: 999px;
+      transition: all 0.2s; cursor: default;
+      backdrop-filter: blur(8px);
+    }
+    .spill:hover { color: var(--accent); border-color: var(--pill-bdr); background: var(--glass-b); }
+
+    /* ═══ EXPERIENCE ═════════════════════════════════════════ */
+    #experience .exp-cards { display: flex; flex-direction: column; gap: 16px; }
+    .exp-card {
+      padding: 32px 36px; border-radius: 22px;
+      display: grid; grid-template-columns: 200px 1fr; gap: 40px;
+      transition: transform 0.2s;
+    }
+    .exp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .exp-aside { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
+    .exp-date {
+      font-size: 0.75rem; font-weight: 500; color: var(--accent);
+      background: var(--pill-bg); border: 1px solid var(--pill-bdr);
+      padding: 4px 12px; border-radius: 999px; display: inline-block; width: fit-content;
+    }
+    .exp-where { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
+    .exp-role { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; margin-bottom: 4px; }
+    .exp-co { font-size: 0.78rem; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .exp-bullets li {
+      font-size: 0.86rem; font-weight: 300; color: var(--text-2);
+      line-height: 1.65; padding-left: 16px; position: relative;
+    }
+    .exp-bullets li::before {
+      content: ''; position: absolute; left: 0; top: 9px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .exp-bullets li strong { color: var(--text); font-weight: 500; }
+
+    /* ═══ PROJECTS ═══════════════════════════════════════════ */
+    #projects .proj-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .proj-card {
+      padding: 28px; border-radius: 22px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .proj-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .proj-card.wide { grid-column: span 2; }
+    .proj-num { font-size: 0.65rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; }
+    .proj-award-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.68rem; font-weight: 500; color: var(--accent);
+      background: linear-gradient(135deg, rgba(107,82,200,0.12), rgba(200,82,160,0.08));
+      border: 1px solid var(--pill-bdr); padding: 3px 12px; border-radius: 999px; width: fit-content;
+    }
+    .proj-card h3 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 500; line-height: 1.35; }
+    .proj-card.wide h3 { font-size: 1.15rem; }
+    .proj-card p { font-size: 0.8rem; color: var(--text-2); font-weight: 300; line-height: 1.65; flex: 1; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ptag {
+      font-size: 0.68rem; color: var(--muted);
+      background: var(--pill-bg); border: 1px solid var(--glass-bdr);
+      padding: 3px 10px; border-radius: 999px;
+    }
+    .proj-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding-top: 4px;
+    }
+    .proj-impact-pill {
+      font-size: 0.72rem; font-weight: 500; color: var(--text-2);
+      background: var(--glass); border: 1px solid var(--glass-bdr);
+      padding: 5px 12px; border-radius: 999px;
+    }
+    .proj-gh {
+      font-size: 0.72rem; font-weight: 400; color: var(--muted);
+      transition: color 0.15s; white-space: nowrap;
+    }
+    .proj-gh:hover { color: var(--accent); }
+
+    /* ═══ AWARDS ═════════════════════════════════════════════ */
+    #awards .awards-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .award-card { padding: 30px; border-radius: 22px; transition: transform 0.2s; }
+    .award-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .award-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .award-card h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500; margin-bottom: 8px; }
+    .award-card p { font-size: 0.82rem; color: var(--text-2); font-weight: 300; line-height: 1.6; margin-bottom: 12px; }
+    .award-when {
+      font-size: 0.7rem; font-weight: 500; color: var(--accent);
+      background: var(--pill-bg); border: 1px solid var(--pill-bdr);
+      padding: 3px 12px; border-radius: 999px; display: inline-block;
+    }
+
+    /* ═══ CONTACT ════════════════════════════════════════════ */
+    #contact .contact-wrap {
+      display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start;
+      max-width: 580px;
+    }
+    #contact h2 { margin-bottom: 20px; }
+    #contact .sub {
+      font-size: 0.93rem; font-weight: 300; color: var(--text-2);
+      line-height: 1.75; margin-bottom: 36px;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .clink {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px; border-radius: 14px;
+      font-size: 0.88rem; font-weight: 400;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .clink:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+    .clink-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(107,82,200,0.3);
+    }
+    .clink-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 2px; font-weight: 400; }
+    .clink-val { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+    .form-glass { padding: 36px; border-radius: 24px; }
+    .form-glass h3 {
+      font-family: 'Fraunces', serif; font-size: 1.3rem;
+      font-weight: 500; margin-bottom: 6px;
+    }
+    .form-glass .sub2 { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; font-weight: 300; }
+    .fg { margin-bottom: 14px; }
+    .fg label { font-size: 0.72rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 6px; }
+    .fg input, .fg textarea {
+      width: 100%;
+      background: var(--pill-bg);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-size: 0.88rem; color: var(--text);
+      font-family: 'Geist', sans-serif;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .fg input:focus, .fg textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(107,82,200,0.12);
+    }
+    .fg textarea { resize: vertical; min-height: 90px; }
+    [data-theme="dark"] .fg input,
+    [data-theme="dark"] .fg textarea { background: rgba(255,255,255,0.05); }
+
+    /* ═══ FOOTER ═════════════════════════════════════════════ */
+    footer {
+      position: relative; z-index: 1;
+      padding: 32px 40px;
+      border-top: 1px solid var(--glass-bdr);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+    /* REVEAL */
+    .reveal { opacity: 1; transform: none; }
+
+
+
+
+    /* ═══ RESPONSIVE ═════════════════════════════════════════ */
+    @media (max-width: 980px) {
+      nav .topbar-nav { display: none; }
+      #about .inner { grid-template-columns: 1fr; }
+      .about-float-card { display: none; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .feat-card.big { grid-row: span 1; }
+      #projects .proj-grid { grid-template-columns: 1fr; }
+      .proj-card.wide { grid-column: span 1; }
+      .exp-card { grid-template-columns: 1fr; gap: 12px; }
+      #awards .awards-grid { grid-template-columns: 1fr; }
+      #contact .contact-wrap { grid-template-columns: 1fr; }
+      .h-stat-val { font-size: 1.4rem; }
+      .wrap { padding: 0 20px; }
+      nav { width: calc(100% - 40px); justify-content: space-between; padding: 10px 16px; border-radius: 16px; top: 12px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+      .hero-stats { flex-direction: column; }
+      .h-stat { border-right: none; border-bottom: 1px solid var(--glass-bdr); }
+      .h-stat:last-child { border-bottom: none; }
+      .about-meta-grid { grid-template-columns: 1fr; }
+      .skill-row { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
 </head>
-
 <body>
 
-  <!-- ======= Skip to main content link (for accessibility) ======= -->
-  <a href="#main" class="skip-to-main-content">Skip to main content</a>
+<!-- AMBIENT ORBS -->
+<div class="orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar">
-    <i class="bi bi-list" aria-hidden="true"></i>
-  </button>
+<!-- FLOATING NAV -->
+<nav>
+  <a href="#home" class="active">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#awards">Awards</a>
+  <a href="#contact">Contact</a>
+  <div class="nav-divider"></div>
+  <div class="nav-right">
+    <div class="nav-status"><span class="pulse"></span>Open to Work</div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀</button>
+  </div>
+</nav>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+<main>
 
-      <div class="profile">
-        <img src="assets/img/SinchanaImg.JPG" alt="Sinchana G V - Data Scientist and ML Engineer" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html" aria-label="Home - Sinchana G V">Sinchana G V</a></h1>
-        <div class="social-links mt-3 text-center" role="list" aria-label="Social media links">
-          <a href="https://www.linkedin.com/in/sinchana-gupta/" rel="noopener noreferrer" target="_blank" class="linkedin" aria-label="Visit my LinkedIn profile"><i class="bx bxl-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
-          <a href="https://github.com/sinchanagv24" rel="noopener noreferrer" target="_blank" class="github" aria-label="Visit my GitHub profile"><i class="bx bxl-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
-          <a href="mailto:sinchanagv24@gmail.com" rel="noopener noreferrer" target="_blank" class="email" aria-label="Send me an email"><i class="bx bx-mail-send" aria-hidden="true"></i><span class="sr-only">Email</span></a>
-          <a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" rel="noopener noreferrer" target="_blank" class="Resume" aria-label="Download my resume"><i class="fas fa-file-pdf" aria-hidden="true"></i><span class="sr-only">Resume</span></a>
-        </div>
+  <!-- HOME -->
+  <section id="home">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <div class="hero-kicker">✦ Data Analyst · Data Scientist · Business Analyst · Product Analyst · Risk Analyst</div>
+      <h1 class="hero-name">
+        Sinchana <span class="italic">G V</span>
+      </h1>
+      <p class="hero-role">Turning data into decisions that matter</p>
+      <p class="hero-bio">
+        <strong>2+ years</strong> building AI systems, analytics pipelines, and data-driven products.
+        MS Data Science, <strong>University of Maryland</strong> (GPA 3.81).
+        MCP AI Hackathon winner. Streamlit Creator. No sponsorship required through July 2028.
+      </p>
+      <div class="hero-actions">
+        <a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view" target="_blank" class="btn-glow btn-primary">↓ Download Resume</a>
+        <a href="#projects" class="btn-glow btn-ghost">View Projects</a>
+        <a href="/cdn-cgi/l/email-protection#75061c1b161d141b1412034741351218141c195b161a18" class="btn-glow btn-ghost">Get in Touch</a>
       </div>
 
-      <nav id="navbar" class="nav-menu navbar" role="navigation" aria-label="Main navigation">
-        <ul role="list">
-          <li><a href="#hero" class="nav-link scrollto active" aria-label="Go to Home section"><i class="bx bx-home" aria-hidden="true"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto" aria-label="Go to About Me section"><i class="bx bx-user" aria-hidden="true"></i> <span>About Me</span></a></li>
-          <li><a href="#skills" class="nav-link scrollto" aria-label="Go to Skills section"><i class="bx bx-cog" aria-hidden="true"></i> <span>Skills</span></a></li>
-          <li><a href="#background" class="nav-link scrollto" aria-label="Go to Background section"><i class="bx bx-building" aria-hidden="true"></i> <span>Background</span></a></li>
-          <li><a href="#projects" class="nav-link scrollto" aria-label="Go to Projects section"><i class="bx bx-book-content" aria-hidden="true"></i> <span>Projects</span></a></li>
-          <li><a href="#awards" class="nav-link scrollto" aria-label="Go to Awards section"><i class="bx bx-award" aria-hidden="true"></i> <span>Awards</span></a></li>
-          <li><a href="#hobbies" class="nav-link scrollto" aria-label="Go to Hobbies section"><i class="bx bx-ball" aria-hidden="true"></i> <span>Hobbies</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto" aria-label="Go to Contact section"><i class="bx bx-envelope" aria-hidden="true"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-val">3.81</div><div class="h-stat-lbl">UMD GPA / 4.00</div></div>
+        <div class="h-stat"><div class="h-stat-val">€2M+</div><div class="h-stat-lbl">Cost savings at Accenture</div></div>
+        <div class="h-stat"><div class="h-stat-val">60%</div><div class="h-stat-lbl">Incident response reduction</div></div>
+        <div class="h-stat"><div class="h-stat-val">8+</div><div class="h-stat-lbl">Production ML projects</div></div>
+        <div class="h-stat"><div class="h-stat-val">100+</div><div class="h-stat-lbl">Students taught at UMD</div></div>
+      </div>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Sinchana G V</h1>
-      <p>I build <span class="typed" data-typed-items="production AI systems, real-time data pipelines, ML models that ship, automated workflows, scalable data solutions"></span></p>
+      <!-- FEATURED WORK CARDS -->
+      <div class="featured-grid" style="width:100%;margin-top:64px;">
+        <div class="feat-card glass-strong big">
+          <div>
+            <div class="feat-num">01 / BEST WORK</div>
+            <span class="feat-badge">🏆 3rd Place, MCP AI Hackathon</span>
+            <h3>Invoice Agent: AI-Powered X12 Processing</h3>
+            <p>End-to-end AI workflow parsing, validating, and enriching EDI X12 invoices using RedisVL vector search, semantic matching, and LLMs.</p>
+            <div class="feat-tech">
+              <span class="ftag">RedisVL</span><span class="ftag">LLMs</span>
+              <span class="ftag">RAG</span><span class="ftag">Streamlit</span>
+            </div>
+          </div>
+          <div>
+            <div class="feat-impact"><span class="dot"></span>60% reduction in manual review</div>
+          </div>
+        </div>
+        <div class="feat-card glass">
+          <div class="feat-num">02</div>
+          <h3>FinTech Risk Analytics</h3>
+          <p>dbt + BigQuery platform analyzing $152M in customer exposure with ARIMA+ forecasting.</p>
+          <div class="feat-tech"><span class="ftag">dbt</span><span class="ftag">BigQuery ML</span><span class="ftag">Looker Studio</span></div>
+          <div class="feat-impact"><span class="dot"></span>$152M analyzed</div>
+        </div>
+        <div class="feat-card glass">
+          <div class="feat-num">03</div>
+          <h3>Customer Churn on AWS</h3>
+          <p>Ensemble ML pipeline predicting churn 30 days in advance. SageMaker + SHAP feature analysis.</p>
+          <div class="feat-tech"><span class="ftag">SageMaker</span><span class="ftag">XGBoost</span><span class="ftag">SHAP</span></div>
+          <div class="feat-impact"><span class="dot"></span>F1: 0.82</div>
+        </div>
+        <div class="feat-card glass">
+          <div class="feat-num">04</div>
+          <h3>Poetic Device Classifier</h3>
+          <p>Fine-tuned Mistral 7B on 13,900 stanzas using LoRA. 20% precision improvement.</p>
+          <div class="feat-tech"><span class="ftag">Mistral 7B</span><span class="ftag">LoRA</span><span class="ftag">FAISS</span></div>
+          <div class="feat-impact"><span class="dot"></span>Eval loss 0.55 to 0.42</div>
+        </div>
+        <div class="feat-card glass">
+          <div class="feat-num">05</div>
+          <h3>Multimodal Drift Detector</h3>
+          <p>Statistical drift detection with LLM-powered root-cause explanations and Slack alerts.</p>
+          <div class="feat-tech"><span class="ftag">Streamlit</span><span class="ftag">NLP</span><span class="ftag">OCR</span></div>
+          <div class="feat-impact"><span class="dot"></span>KS + PSI + z-score</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About Me</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/SG.JPEG" class="img-fluid" alt="Sinchana G V - Professional portrait">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <p>
-              <strong>I build AI systems that work in production, not just in notebooks.</strong>
-            </p>
-            <p>
-              <em>Legal name: Sinchana Gupta Garla Venkatesha</em>
-            </p>
-            <p>
-              Currently at <a href="https://www.connyct.com" target="_blank" rel="noopener noreferrer"><strong>Connyct Inc.</strong></a>, I engineer production AI workflows that automate enterprise processes. I recently built an AI-powered invoice processing system using RedisVL and LLMs that reduced manual review time by 60%, earning 3rd place in the Redis VL Innovator category at the MCP Hackathon.
-            </p>
-            <p>
-              Previously at <a href="https://www.mann-hummel.com/en.html" target="_blank" rel="noopener noreferrer"><strong>Mann+Hummel</strong></a>, I deployed 10+ interactive dashboards that improved decision-making by 20% and automated ETL workflows that saved 15+ hours weekly. At <a href="https://www.accenture.com" target="_blank" rel="noopener noreferrer"><strong>Accenture</strong></a>, I analyzed failure patterns across 10,000+ vehicle registrations and improved system reliability from 60% to over 90%, saving an estimated €2M+ annually in operational costs.
-            </p>
-            <p>
-              I hold an <strong>MS in Data Science from University of Maryland (GPA: 3.81/4.00)</strong> and specialize in building scalable data pipelines, deploying ML models, and turning complex data into automated business decisions.
-            </p>
-            <p>
-              <strong>I'm actively seeking full-time Data Science and ML Engineering roles starting June 2025.</strong>
-            </p>
-            <p>
-              When I'm not coding, you'll find me hiking, discovering unique coffee shops, or solving sudoku puzzles. I'm learning Japanese while watching anime, with <em>Case Closed</em> as my favorite.
-            </p>
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Engineer by training,<br><em>builder by instinct</em></h2>
+      <div class="inner">
+        <div class="about-photo-wrap">
+          <img src="assets/img/SG.JPEG" alt="Sinchana G V" class="about-photo"
+               onerror="this.style.background='var(--glass)';this.style.minHeight='380px'" />
+          <div class="about-float-card glass-strong">
+            <span class="val">3.81</span>UMD GPA
           </div>
         </div>
-
-      </div>
-    </section>
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-        <div class="section-title">
-          <h2>Technical Skills</h2>
-          <p><strong>Core Expertise:</strong> Machine Learning, Data Pipelines, Predictive Analytics, A/B Testing, Real-Time Systems</p>
-        </div>
-        <div class="row skills-content">
-          <div class="col-lg-4" data-aos="fade-up">
-            <h5>Programming & Data</h5>
-            <ul class="skills-list">
-              <li><i class="bi bi-chevron-right"></i> Python</li>
-              <li><i class="bi bi-chevron-right"></i> SQL</li>
-              <li><i class="bi bi-chevron-right"></i> R</li>
-              <li><i class="bi bi-chevron-right"></i> Pandas</li>
-              <li><i class="bi bi-chevron-right"></i> NumPy</li>
-            </ul>
-          </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <h5>ML & AI Frameworks</h5>
-            <ul class="skills-list">
-              <li><i class="bi bi-chevron-right"></i> PyTorch</li>
-              <li><i class="bi bi-chevron-right"></i> TensorFlow</li>
-              <li><i class="bi bi-chevron-right"></i> Scikit-learn</li>
-              <li><i class="bi bi-chevron-right"></i> XGBoost</li>
-              <li><i class="bi bi-chevron-right"></i> FAISS</li>
-              <li><i class="bi bi-chevron-right"></i> RedisVL</li>
-            </ul>
-          </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <h5>Cloud & Infrastructure</h5>
-            <ul class="skills-list">
-              <li><i class="bi bi-chevron-right"></i> AWS (SageMaker, S3, Lambda)</li>
-              <li><i class="bi bi-chevron-right"></i> Snowflake</li>
-              <li><i class="bi bi-chevron-right"></i> Docker</li>
-              <li><i class="bi bi-chevron-right"></i> Git</li>
-              <li><i class="bi bi-chevron-right"></i> PostgreSQL</li>
-              <li><i class="bi bi-chevron-right"></i> MongoDB</li>
-            </ul>
+        <div class="about-text">
+          <p>Currently at <strong>Connyct Inc.</strong> as an AI and Data Science Technology Engineer, I engineer production AI workflows that automate enterprise processes. My invoice processing system (built with RedisVL and LLMs) earned 3rd place at the MCP AI Hackathon, reducing manual review time by 60%.</p>
+          <p>At <strong>Mann+Hummel</strong>, I deployed 10+ interactive dashboards improving decision-making by 20% and automated ETL saving 15+ hours weekly. At <strong>Accenture</strong>, I reduced Nissan EU's job failures from 40% to under 10%, saving an estimated €2M+ annually.</p>
+          <p>I serve as a <strong>Graduate Teaching Assistant</strong> for ML at UMD supporting 100+ students, and I'm a proud member of the <strong>Streamlit Creators Program</strong>.</p>
+          <div class="about-meta-grid">
+            <div class="meta-chip glass"><div class="meta-chip-label">Location</div><div class="meta-chip-val">College Park, MD</div></div>
+            <div class="meta-chip glass"><div class="meta-chip-label">Education</div><div class="meta-chip-val">MS Data Science, UMD</div></div>
+            <div class="meta-chip glass"><div class="meta-chip-label">Work Auth</div><div class="meta-chip-val">F1 OPT, no sponsorship</div></div>
+            <div class="meta-chip glass"><div class="meta-chip-label">Availability</div><div class="meta-chip-val">Immediately</div></div>
           </div>
         </div>
-        <div class="row skills-content">
-          <div class="col-lg-12" data-aos="fade-up">
-            <h5>Visualization & Analytics</h5>
-            <ul class="skills-list">
-              <li><i class="bi bi-chevron-right"></i> Power BI</li>
-              <li><i class="bi bi-chevron-right"></i> Tableau</li>
-              <li><i class="bi bi-chevron-right"></i> Plotly</li>
-              <li><i class="bi bi-chevron-right"></i> Matplotlib</li>
-              <li><i class="bi bi-chevron-right"></i> Seaborn</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Background Section ======= -->
-    <section id="background" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Professional Background</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>University of Maryland, College Park</h4>
-             <h5>2023 - 2025</h5>
-              <p><em>M.S. in Data Science</em></p>
-              <ul>
-                <li><b>GPA:</b> 3.81/4.00</li>
-                <li><b>Coursework:</b> Natural Language Processing, Machine Learning, Deep Learning, Cloud Computing, Computer Vision, Big Data Systems, Statistical Methods</li>
-                <li><b>Role:</b> Graduate Teaching Assistant</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>PES University</h4>
-              <h5>2017 - 2021</h5>
-              <p><em>B.Tech in Electronics and Communication Engineering | Minor: Computer Science</em></p>
-              <ul>
-                <li><b>Coursework:</b> Data Structures, Algorithms, Database Management Systems, Operating Systems</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Work Experience</h3>
-            <div class="resume-item">
-              <h4>Connyct Inc.</h4>
-              <h5>August 2025 - Present</h5>
-              <p><em>AI & Data Science Technology Engineer</em></p>
-              <ul>
-                <li>Engineered an AI-powered invoice processing system using RedisVL vector search and LLMs that automatically parses, validates, and enriches X12 invoices with 85% accuracy, reducing manual review time by 60%</li>
-                <li>Built real-time data pipelines using Python, Redis, and AWS that process 50K+ events daily, enabling automated anomaly detection and instant alerting</li>
-                <li>Deployed Streamlit dashboards with live monitoring that surface data quality issues in real time, cutting incident response from hours to minutes</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Mann + Hummel</h4>
-              <h5>May 2024 - August 2024</h5>
-              <p><em>Data Science Intern</em></p>
-              <ul>
-                <li>Designed and deployed 10+ interactive Power BI and Python dashboards that visualized real-time production KPIs, improving decision-making speed by 20%</li>
-                <li>Automated ETL workflows using Python and SQL integrated with Snowflake, eliminating 15+ hours of manual weekly processing and increasing data accuracy by 30%</li>
-                <li>Built predictive models using Random Forest to forecast inventory needs, reducing stockout incidents by 18%</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Accenture Solutions Pvt. Ltd.</h4>
-              <h5>June 2021 - June 2023</h5>
-              <p><em>Application Development Associate</em></p>
-              <ul>
-                <li>Analyzed registration failure patterns across 10,000+ VINs for Nissan EU using Python and SQL, identifying root causes that reduced job failures from 40% to under 10%, saving estimated €2M+ annually</li>
-                <li>Built automated data validation pipelines that flagged anomalies with 95% precision, reducing manual review workload by 35%</li>
-                <li>Created dashboards that tracked system health metrics, improving uptime from 85% to 93%</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="projects" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Featured Projects</h2>
-          <p>Production-grade systems with measurable business impact</p>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/InvoiceAgent.png" alt="Invoice Agent AI-powered X12 processing system interface">
-              <div class="card-body">
-                <h5 class="card-title">Invoice Agent: AI-Powered X12 Processing</h5>
-                <p class="card-text"><strong>🏆 3rd Place - Redis VL Innovator, MCP Hackathon</strong><br><br>Built an end-to-end AI workflow that automates EDI X12 invoice validation using RedisVL vector search and LLMs. Reduced manual review time by 60% with 85% accuracy in anomaly detection.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchanagv24/invoice-agent-x12-starter" target="_blank" rel="noopener noreferrer" title="View Invoice Agent project on GitHub" aria-label="View Invoice Agent project on GitHub"><i class="bx bx-link" aria-hidden="true"></i><span class="sr-only">View on GitHub</span></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/MMDrift.png" alt="Multimodal Data Drift Detector dashboard showing statistical analysis">
-              <div class="card-body">
-                <h5 class="card-title">Multimodal Data Drift Detector</h5>
-                <p class="card-text">Streamlit application that detects statistical drift in production data and uses multimodal context (release notes, screenshots, logs) to explain why metrics changed. Combines statistical analysis with LLM-powered explanations.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchanagv24/mm-drift-detector" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Snowflake.png" alt="Real-time Bitcoin data pipeline architecture diagram">
-              <div class="card-body">
-                <h5 class="card-title">Real-Time Bitcoin Data Pipeline</h5>
-                <p class="card-text">Production-grade real-time pipeline using Python, Snowflake, AWS S3, and Snowpipe with less than 10 second latency. Architected event-driven ingestion with AWS Lambda, achieving 8-second average latency. Enabled 4x faster data availability vs traditional batch ETL.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchana9924/Real-Time_Bitcoin_Data_Analysis_with_Snowflake" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Customer_churn_AWS.png" alt="Customer churn prediction model dashboard on AWS">
-              <div class="card-body">
-                <h5 class="card-title">Customer Churn Prediction on AWS</h5>
-                <p class="card-text">End-to-end ML pipeline on AWS that predicts customer churn 30 days in advance with 82% F1 score. Deployed ensemble models on SageMaker with automated nightly batch inference scoring 100K+ customers.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchana9924/customer-churn-pred-aws" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Poetic_device.png" alt="Poetic device classifier using LLMs interface">
-              <div class="card-body">
-                <h5 class="card-title">Poetic Device Classifier Using LLMs</h5>
-                <p class="card-text">Fine-tuned Mistral 7B on 13,900 annotated poetry stanzas using LoRA, achieving 20% performance improvement (eval loss from 0.55 to 0.42). Integrated FAISS vector search and GPT-based explanations. Processes 1,000+ stanzas per minute with 89% F1 score.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchana9924/Poetic-device-classifier" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/DC_Metro.png" alt="DC Metro ridership analytics dashboard with forecasting">
-              <div class="card-body">
-                <h5 class="card-title">DC Metro Ridership Analytics</h5>
-                <p class="card-text">Analyzed 3+ years of WMATA ridership data (10M+ entries) to identify patterns. Built interactive Plotly dashboards and ARIMA forecasting model with 85% accuracy. Provides trip planning insights that reduce wait times by estimated 8-12 minutes during peak hours.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchana9924/DC-metro-ridership-analysis" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Plant_dis.png" alt="Plant disease classification CNN model results">
-              <div class="card-body">
-                <h5 class="card-title">Plant Disease Classification Using CNNs</h5>
-                <p class="card-text">Deep learning model that classifies potato plant diseases with 95% validation accuracy. Built using TensorFlow and Keras with transfer learning from ResNet50. Optimized for mobile deployment using TensorFlow Lite with less than 100ms inference time.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchana9924/plant-disease-classification" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card portfolio-wrap">
-              <img class="card-img-top img-fluid" src="assets/img/portfolio/Flight_Delay.png" alt="Flight delay prediction and analysis dashboard">
-              <div class="card-body">
-                <h5 class="card-title">Flight Delay Prediction and Analysis</h5>
-                <p class="card-text">API-driven analysis of flight delay patterns at busiest global airports. Trained Random Forest and XGBoost models to predict delays. Built interactive dashboards that improved travel decision-making and reduced disruptions by 20%.</p>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/sinchana9924/Flight-delay-prediction" target="_blank" title="View on GitHub"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Awards Section ======= -->
-    <section id="awards" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Awards & Recognition</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/mcp-ai-hackathon.png" class="img-fluid" alt="MCP AI Hackathon 3rd Place Award Certificate">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>3rd Place - Redis VL Innovator Category</h3>
-            <h5>September 2025</h5>
-            <h5>MCP AI Hackathon</h5>
-            <p>
-              Awarded for building an AI-powered invoice processing agent that automates X12 to ERP workflows using RedisVL vector search, semantic matching, and real-time anomaly detection.
-            </p>
-          </div>
-        </div>
-
-        <br><br>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/apex.png" class="img-fluid" alt="Accenture Apex Award Winner Certificate">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Apex Award Winner</h3>
-            <h5>May 2023</h5>
-            <h5>Issued by Accenture, India</h5>
-            <p>
-              Recognition award for outstanding performance and measurable business impact. Honored for improving system reliability from 60% to 90%+ through data-driven optimization.
-            </p>
-            <div class="portfolio-links">
-              <a href="https://www.linkedin.com/in/sinchana-gupta/overlay/1748836508300/single-media-viewer/?profileId=ACoAACWXN6wBgZJlGPuzGsqfh7ZuCbrll87QYjg" target="_blank" rel="noopener noreferrer" title="View Apex Award Certificate" aria-label="View Apex Award Certificate on LinkedIn"><i class="bx bx-link" aria-hidden="true"></i> Certificate</a>
-            </div>
-          </div>
-        </div>
-
-        <br><br>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/Client_Value.png" class="img-fluid" alt="Accenture Client Value Creation Award Certificate">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Client Value Creation Award</h3>
-            <h5>December 2022</h5>
-            <h5>Issued by Accenture, India</h5>
-            <p>
-              Recognized for creating significant impact on client outcomes. Awarded for identifying root causes of registration failures and reducing operational costs by an estimated €2M+ annually for Nissan EU.
-            </p>
-            <div class="portfolio-links">
-              <a href="https://www.linkedin.com/in/sinchana-gupta/overlay/1748839205840/single-media-viewer/?profileId=ACoAACWXN6wBgZJlGPuzGsqfh7ZuCbrll87QYjg" target="_blank" rel="noopener noreferrer" title="View Client Value Creation Award Certificate" aria-label="View Client Value Creation Award Certificate on LinkedIn"><i class="bx bx-link" aria-hidden="true"></i> Certificate</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======= Hobbies Section ======= -->
-    <section id="hobbies" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Beyond Work</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/Sinchana_cafe.png" class="img-fluid" alt="Sinchana G V at a coffee shop">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <p>
-              I recharge through hiking (recently explored Sky Meadows State Park), discovering unique coffee shops around the Bay Area, and solving sudoku puzzles. After a long hike, you'll find me at a local café trying everything from strong cold brews to creamy cappuccinos.
-            </p>
-            <p>
-              When I'm at home, I'm immersed in Korean dramas and anime. <em>Case Closed</em> is my all-time favorite for its clever mysteries. I'm learning Japanese as a beginner, and it's fun picking up words while watching. In quieter moments, I enjoy solving sudoku puzzles or getting lost in a good mystery novel. These hobbies fuel my curiosity and love for problem-solving.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Let's Connect</h2>
-          <p><strong>I'm actively seeking full-time Data Science and ML Engineering roles starting June 2025.</strong></p>
-          <p>Whether you're looking for someone to build production ML systems, automate data pipelines, or turn complex data into business value, I'd love to talk.</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                <h4>Location:</h4>
-                <p>San Francisco Bay Area, CA</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope" aria-hidden="true"></i>
-                <h4>Email:</h4>
-                <p><a href="mailto:sinchanagv24@gmail.com" aria-label="Send email to sinchanagv24@gmail.com">sinchanagv24@gmail.com</a></p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-file-pdf" aria-hidden="true"></i>
-                <h4>Resume:</h4>
-                <p><a href="https://drive.google.com/file/d/10UskaZcPYVKGHwvCNQ_ndmOAbxJNDAQP/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Download resume PDF">Download PDF</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        <br>
-        Adapted by <a href="#">Sinchana G V</a>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i><span class="sr-only">Back to top</span></a>
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <div class="section-tag">Technical Skills</div>
+      <h2 class="section-title">What I work <em>with</em></h2>
+      <div class="skills-wrap">
+        <div class="skill-row glass">
+          <div class="skill-cat">Languages</div>
+          <div class="skill-pills"><span class="spill">Python</span><span class="spill">SQL</span><span class="spill">R</span><span class="spill">C++</span><span class="spill">Java</span><span class="spill">JavaScript</span></div>
+        </div>
+        <div class="skill-row glass">
+          <div class="skill-cat">ML / AI</div>
+          <div class="skill-pills"><span class="spill">PyTorch</span><span class="spill">TensorFlow</span><span class="spill">Scikit-learn</span><span class="spill">XGBoost</span><span class="spill">LightGBM</span><span class="spill">Keras</span><span class="spill">Hugging Face</span><span class="spill">FAISS</span><span class="spill">RedisVL</span><span class="spill">LLMs</span><span class="spill">RAG Pipelines</span><span class="spill">LLM Fine-tuning</span><span class="spill">NLTK</span><span class="spill">spaCy</span><span class="spill">OpenCV</span></div>
+        </div>
+        <div class="skill-row glass">
+          <div class="skill-cat">Data Engineering</div>
+          <div class="skill-pills"><span class="spill">Snowflake</span><span class="spill">BigQuery</span><span class="spill">PostgreSQL</span><span class="spill">MongoDB</span><span class="spill">Redis</span><span class="spill">MySQL</span><span class="spill">dbt</span><span class="spill">Apache Spark</span><span class="spill">ETL Pipelines</span></div>
+        </div>
+        <div class="skill-row glass">
+          <div class="skill-cat">Cloud / Infra</div>
+          <div class="skill-pills"><span class="spill">AWS SageMaker</span><span class="spill">AWS Lambda</span><span class="spill">AWS S3</span><span class="spill">AWS EC2</span><span class="spill">AWS Redshift</span><span class="spill">GCP</span><span class="spill">Docker</span><span class="spill">CI/CD</span><span class="spill">GPU Training</span></div>
+        </div>
+        <div class="skill-row glass">
+          <div class="skill-cat">Visualization</div>
+          <div class="skill-pills"><span class="spill">Tableau</span><span class="spill">Power BI</span><span class="spill">Looker Studio</span><span class="spill">Streamlit</span><span class="spill">Plotly</span><span class="spill">Matplotlib</span><span class="spill">Seaborn</span><span class="spill">ggplot2</span><span class="spill">R Shiny</span></div>
+        </div>
+        <div class="skill-row glass">
+          <div class="skill-cat">Statistics</div>
+          <div class="skill-pills"><span class="spill">Pandas</span><span class="spill">NumPy</span><span class="spill">SciPy</span><span class="spill">Statsmodels</span><span class="spill">A/B Testing</span><span class="spill">Hypothesis Testing</span><span class="spill">Time Series</span><span class="spill">Feature Engineering</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <div class="section-tag">Experience</div>
+      <h2 class="section-title">Where I've <em>made an impact</em></h2>
+      <div class="exp-cards">
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+        <div class="exp-card glass">
+          <div class="exp-aside">
+            <span class="exp-date">Aug 2025 – Present</span>
+            <div class="exp-where">Connyct Inc.<br>New York, NY (Remote)</div>
+          </div>
+          <div>
+            <div class="exp-role">AI &amp; Data Science Technology Engineer</div>
+            <div class="exp-co">Connyct Inc.</div>
+            <ul class="exp-bullets">
+              <li>Designed and deployed AI workflows integrating LLMs into enterprise applications, enhancing automation across multiple business units</li>
+              <li>Built scalable data pipelines using Python, Redis, and AWS supporting real-time analytics processing thousands of transactions daily</li>
+              <li>Reduced incident response time by <strong>60%</strong> through automated reporting workflows surfacing data quality insights and anomalies</li>
+              <li>Developed Streamlit dashboards for real-time performance monitoring for Sales and Customer Success teams</li>
+            </ul>
+          </div>
+        </div>
 
-</body>
+        <div class="exp-card glass">
+          <div class="exp-aside">
+            <span class="exp-date">Aug 2024 – May 2025</span>
+            <div class="exp-where">University of Maryland<br>College Park, MD</div>
+          </div>
+          <div>
+            <div class="exp-role">Graduate Teaching Assistant</div>
+            <div class="exp-co">University of Maryland</div>
+            <ul class="exp-bullets">
+              <li>Assisted professors teaching Machine Learning and Data Science to <strong>100+ graduate students</strong></li>
+              <li>Conducted office hours, graded assignments, and provided feedback on Python, ML algorithms, and statistical analysis</li>
+              <li>Developed supplementary code examples to enhance student understanding of complex ML concepts</li>
+            </ul>
+          </div>
+        </div>
 
-</html>
+        <div class="exp-card glass">
+          <div class="exp-aside">
+            <span class="exp-date">May 2024 – Aug 2024</span>
+            <div class="exp-where">Mann+Hummel<br>Raleigh, NC</div>
+          </div>
+          <div>
+            <div class="exp-role">Data Science Intern</div>
+            <div class="exp-co">Mann+Hummel</div>
+            <ul class="exp-bullets">
+              <li>Designed and deployed <strong>10+ interactive dashboards</strong> using Power BI, Tableau, and Python, improving decision-making by 20%</li>
+              <li>Automated ETL workflows reducing manual processing by <strong>15 hours/week</strong> and improving data accuracy by 30%</li>
+              <li>Applied clustering and regression to forecast inventory, reducing stockout incidents by 18%</li>
+              <li>Performed EDA on <strong>500K+ records</strong> to surface data storytelling narratives for leadership</li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="exp-card glass">
+          <div class="exp-aside">
+            <span class="exp-date">Jun 2021 – Jun 2023</span>
+            <div class="exp-where">Accenture Solutions<br>Bangalore, India</div>
+          </div>
+          <div>
+            <div class="exp-role">Application Development Associate</div>
+            <div class="exp-co">Accenture Solutions Pvt. Ltd.</div>
+            <ul class="exp-bullets">
+              <li>Processed and transformed registration data from <strong>10,000+ VINs daily</strong> for Nissan EU using Python and SQL</li>
+              <li>Reduced job failures from <strong>40% to under 10%</strong>, saving an estimated <strong>€2M+ annually</strong></li>
+              <li>Built reporting workflows improving system reliability from 60% to over <strong>90%</strong></li>
+              <li>Partnered with cross-functional teams to translate business questions into technical implementations</li>
+            </ul>
+          </div>
+        </div>
 
+      </div>
+    </div>
+  </section>
 
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <div class="wrap">
+      <div class="section-tag">Projects</div>
+      <h2 class="section-title">Production-grade systems,<br><em>measurable impact</em></h2>
+      <div class="proj-grid">
 
+        <div class="proj-card glass wide">
+          <div class="proj-num">01 / 07</div>
+          <span class="proj-award-tag">🏆 3rd Place, MCP AI Hackathon</span>
+          <h3>Invoice Agent: AI-Powered X12 Processing</h3>
+          <p>End-to-end AI workflow parsing, validating, and enriching EDI X12 invoices using RedisVL vector search and semantic matching. Streamlit dashboard for real-time anomaly monitoring.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">RedisVL</span><span class="ptag">LLMs</span><span class="ptag">RAG</span><span class="ptag">Streamlit</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">85% accuracy · 60% review reduction</span>
+            <a href="https://github.com/sinchanagv24/invoice-agent" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
 
+        <div class="proj-card glass">
+          <div class="proj-num">02 / 07</div>
+          <h3>FinTech Risk Analytics Dashboard</h3>
+          <p>Risk analysis platform for 2,965 customers with $152M exposure. ARIMA+ forecasting with BigQuery ML. 32% high-risk customers hold 3x disproportionate exposure.</p>
+          <div class="proj-tags"><span class="ptag">dbt</span><span class="ptag">BigQuery</span><span class="ptag">BigQuery ML</span><span class="ptag">Looker Studio</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">$152M analyzed</span>
+            <a href="https://github.com/sinchanagv24/fintech_dbt" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
 
+        <div class="proj-card glass">
+          <div class="proj-num">03 / 07</div>
+          <h3>Multimodal Data Drift Detector</h3>
+          <p>Drift detection combining KS test, PSI, and z-score with multimodal context from PDFs, screenshots, and logs. AI root-cause explanations with Slack alerts.</p>
+          <div class="proj-tags"><span class="ptag">Streamlit</span><span class="ptag">NLP</span><span class="ptag">OCR</span><span class="ptag">Scikit-learn</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">Why metrics changed, not just that they did</span>
+            <a href="https://github.com/sinchanagv24/mm-drift-detector" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
+
+        <div class="proj-card glass">
+          <div class="proj-num">04 / 07</div>
+          <h3>Customer Churn Prediction on AWS</h3>
+          <p>ML pipeline predicting churn 30 days ahead using ensemble methods. SageMaker deployment with QuickSight monitoring and SHAP-based feature importance.</p>
+          <div class="proj-tags"><span class="ptag">SageMaker</span><span class="ptag">XGBoost</span><span class="ptag">SHAP</span><span class="ptag">QuickSight</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">F1: 0.82 · Real-time inference</span>
+            <a href="https://github.com/sinchanagv24/customer-churn" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
+
+        <div class="proj-card glass">
+          <div class="proj-num">05 / 07</div>
+          <h3>Poetic Device Classifier (LLM Fine-tuning)</h3>
+          <p>Fine-tuned Mistral 7B on 13,900 annotated stanzas using LoRA. FAISS retrieval + GPT explanations. Processes 1,000+ stanzas per minute.</p>
+          <div class="proj-tags"><span class="ptag">Mistral 7B</span><span class="ptag">PyTorch</span><span class="ptag">LoRA</span><span class="ptag">FAISS</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">20% gain · Eval loss 0.55 to 0.42</span>
+            <a href="https://github.com/sinchanagv24/poetic-device-classifier" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
+
+        <div class="proj-card glass">
+          <div class="proj-num">06 / 07</div>
+          <h3>DC Metro Ridership Analytics</h3>
+          <p>3+ years of WMATA data across 98 stations. Seasonal decomposition, peak analysis, anomaly detection near venues, with dynamic scheduling recommendations.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Seaborn</span><span class="ptag">EDA</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">PM Peak identified as busiest</span>
+            <a href="https://github.com/sinchanagv24/DC-metro-ridership-analysis" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
+
+        <div class="proj-card glass wide">
+          <div class="proj-num">07 / 07</div>
+          <h3>COVID-19 Case Fatality Rate Analysis</h3>
+          <p>Comprehensive statistical analysis of global COVID-19 CFR data. EDA and wrangling on large-scale pandemic datasets. ggplot2 visualizations with R Markdown report covering statistical interpretations and actionable takeaways.</p>
+          <div class="proj-tags"><span class="ptag">R</span><span class="ptag">ggplot2</span><span class="ptag">dplyr</span><span class="ptag">tidyverse</span><span class="ptag">R Markdown</span></div>
+          <div class="proj-foot">
+            <span class="proj-impact-pill">Global pandemic data insights</span>
+            <a href="https://github.com/sinchanagv24/COVID-19-analysis" target="_blank" class="proj-gh">github ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards" class="reveal">
+    <div class="wrap">
+      <div class="section-tag">Recognition</div>
+      <h2 class="section-title">Awards &amp; <em>honors</em></h2>
+      <div class="awards-grid">
+        <div class="award-card glass-strong">
+          <span class="award-icon">🥉</span>
+          <h3>3rd Place, Redis VL Innovator Category</h3>
+          <p>MCP AI Hackathon · AI-powered invoice processing agent using RedisVL vector search, semantic matching, and real-time anomaly detection.</p>
+          <span class="award-when">2025</span>
+        </div>
+        <div class="award-card glass">
+          <span class="award-icon">🏆</span>
+          <h3>Apex Award Winner</h3>
+          <p>Accenture, India · Outstanding performance and measurable business impact. Honored for improving system reliability from 60% to 90%+.</p>
+          <span class="award-when">May 2023</span>
+        </div>
+        <div class="award-card glass">
+          <span class="award-icon">⭐</span>
+          <h3>Client Value Creation Award</h3>
+          <p>Accenture, India · Identifying root causes of registration failures and reducing operational costs by an estimated €2M+ annually for Nissan EU.</p>
+          <span class="award-when">Dec 2022</span>
+        </div>
+        <div class="award-card glass">
+          <span class="award-icon">🎓</span>
+          <h3>Streamlit Creators Program</h3>
+          <p>Selected as a Streamlit Creator for contributions to the open-source data app ecosystem and high-quality Streamlit application development.</p>
+          <span class="award-when">2024 – Present</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <div class="wrap">
+      <div class="section-tag">Contact</div>
+      <h2 class="section-title" style="margin-bottom:16px;">Let's build<br><em>something great</em></h2>
+      <p class="sub" style="max-width:540px;margin-bottom:40px;">Actively seeking full-time roles in Data Analytics, Data Science, Business Analysis, Product Analytics, and Risk Analytics. Whether you want to discuss a role or explore collaboration, I'd love to connect.</p>
+      <div class="contact-links" style="max-width:480px;">
+        <a href="mailto:sinchanagv24@gmail.com" class="clink glass">
+          <div class="clink-icon">✉</div>
+          <div><div class="clink-label">Email</div><div class="clink-val">sinchanagv24@gmail.com</div></div>
+        </a>
+        <a href="tel:+12404133195" class="clink glass">
+          <div class="clink-icon">📞</div>
+          <div><div class="clink-label">Phone</div><div class="clink-val">(240) 413-3195</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/sinchanagv/" target="_blank" class="clink glass">
+          <div class="clink-icon">in</div>
+          <div><div class="clink-label">LinkedIn</div><div class="clink-val">linkedin.com/in/sinchanagv</div></div>
+        </a>
+        <a href="https://github.com/sinchanagv24" target="_blank" class="clink glass">
+          <div class="clink-icon" style="font-size:0.85rem;font-weight:700;">GH</div>
+          <div><div class="clink-label">GitHub</div><div class="clink-val">github.com/sinchanagv24</div></div>
+        </a>
+        <a href="https://sinchanagv24.github.io" target="_blank" class="clink glass">
+          <div class="clink-icon" style="font-size:0.8rem;font-weight:700;">🌐</div>
+          <div><div class="clink-label">Portfolio</div><div class="clink-val">sinchanagv24.github.io</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Sinchana Gupta Garla Venkatesha · Data Analyst · Data Scientist · Business Analyst</span>
+  <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="295a40474a414847484e5f1b1d694e44484045074a4644">[email&#160;protected]</a> · College Park, MD · 2026</span>
+</footer>
+
+<script>
+  // Theme
+  const btn = document.getElementById('themeBtn');
+  function toggleTheme() {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+    btn.textContent = dark ? '☀' : '☾';
+  }
+
+  // Active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll',

@@ -8,50 +8,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-
-    /* ═══ TOKENS ═══════════════════════════════════════════ */
     :root {
-      --bg:         #F0EDF8;
-      --bg-b:       #E8E3F5;
-      --orb1:       rgba(178,157,235,0.55);
-      --orb2:       rgba(147,197,221,0.45);
-      --orb3:       rgba(235,179,200,0.4);
-      --orb4:       rgba(168,220,190,0.35);
-      --glass:      rgba(255,255,255,0.55);
-      --glass-b:    rgba(255,255,255,0.75);
-      --glass-bdr:  rgba(255,255,255,0.8);
-      --text:       #1E1B2E;
-      --text-2:     #4A4560;
-      --muted:      #8B87A8;
-      --accent:     #6B52C8;
-      --accent-2:   #C852A0;
-      --pill-bg:    rgba(255,255,255,0.6);
-      --pill-bdr:   rgba(107,82,200,0.2);
-      --shadow:     0 8px 32px rgba(107,82,200,0.12);
-      --shadow-lg:  0 20px 60px rgba(107,82,200,0.18);
+      --bg:        #F0EDF8;
+      --bg-b:      #E8E3F5;
+      --orb1:      rgba(178,157,235,0.55);
+      --orb2:      rgba(147,197,221,0.45);
+      --orb3:      rgba(235,179,200,0.4);
+      --orb4:      rgba(168,220,190,0.35);
+      --glass:     rgba(255,255,255,0.55);
+      --glass-b:   rgba(255,255,255,0.75);
+      --glass-bdr: rgba(255,255,255,0.8);
+      --text:      #1E1B2E;
+      --text-2:    #4A4560;
+      --muted:     #8B87A8;
+      --accent:    #6B52C8;
+      --accent-2:  #C852A0;
+      --pill-bg:   rgba(255,255,255,0.6);
+      --pill-bdr:  rgba(107,82,200,0.2);
+      --shadow:    0 8px 32px rgba(107,82,200,0.12);
+      --shadow-lg: 0 20px 60px rgba(107,82,200,0.18);
     }
     [data-theme="dark"] {
-      --bg:         #0F0D1A;
-      --bg-b:       #160F2A;
-      --orb1:       rgba(100,70,180,0.4);
-      --orb2:       rgba(40,110,160,0.35);
-      --orb3:       rgba(160,50,120,0.3);
-      --orb4:       rgba(40,140,100,0.25);
-      --glass:      rgba(255,255,255,0.05);
-      --glass-b:    rgba(255,255,255,0.08);
-      --glass-bdr:  rgba(255,255,255,0.12);
-      --text:       #EDE9FF;
-      --text-2:     #B8B0D8;
-      --muted:      #6B6590;
-      --accent:     #9D82F0;
-      --accent-2:   #F07EC0;
-      --pill-bg:    rgba(255,255,255,0.06);
-      --pill-bdr:   rgba(157,130,240,0.25);
-      --shadow:     0 8px 32px rgba(0,0,0,0.4);
-      --shadow-lg:  0 20px 60px rgba(0,0,0,0.5);
+      --bg:        #0F0D1A;
+      --bg-b:      #160F2A;
+      --orb1:      rgba(100,70,180,0.4);
+      --orb2:      rgba(40,110,160,0.35);
+      --orb3:      rgba(160,50,120,0.3);
+      --orb4:      rgba(40,140,100,0.25);
+      --glass:     rgba(255,255,255,0.05);
+      --glass-b:   rgba(255,255,255,0.08);
+      --glass-bdr: rgba(255,255,255,0.12);
+      --text:      #EDE9FF;
+      --text-2:    #B8B0D8;
+      --muted:     #6B6590;
+      --accent:    #9D82F0;
+      --accent-2:  #F07EC0;
+      --pill-bg:   rgba(255,255,255,0.06);
+      --pill-bdr:  rgba(157,130,240,0.25);
+      --shadow:    0 8px 32px rgba(0,0,0,0.4);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    /* ═══ BASE ══════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -64,15 +61,9 @@
     }
     a { color: inherit; text-decoration: none; }
 
-    /* ═══ AMBIENT ORBS ══════════════════════════════════════ */
-    .orbs {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      overflow: hidden;
-    }
-    .orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(80px); animation: drift 18s ease-in-out infinite;
-    }
+    /* ORBS */
+    .orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: drift 18s ease-in-out infinite; }
     .orb-1 { width: 600px; height: 600px; background: var(--orb1); top: -200px; left: -100px; animation-delay: 0s; }
     .orb-2 { width: 500px; height: 500px; background: var(--orb2); top: 20%; right: -150px; animation-delay: -6s; }
     .orb-3 { width: 450px; height: 450px; background: var(--orb3); bottom: 10%; left: 20%; animation-delay: -12s; }
@@ -80,19 +71,17 @@
     @keyframes drift {
       0%,100% { transform: translate(0,0) scale(1); }
       33%      { transform: translate(30px,-40px) scale(1.05); }
-      66%      { transform: translate(-20px, 25px) scale(0.97); }
+      66%      { transform: translate(-20px,25px) scale(0.97); }
     }
 
-    /* ═══ NAV ════════════════════════════════════════════════ */
+    /* NAV */
     nav {
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
       z-index: 300;
       background: var(--glass-b);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-bdr);
-      border-radius: 999px;
-      padding: 10px 24px;
+      border-radius: 999px; padding: 10px 24px;
       display: flex; align-items: center; gap: 6px;
       box-shadow: var(--shadow);
     }
@@ -102,22 +91,12 @@
       transition: all 0.2s; white-space: nowrap;
     }
     nav a:hover { color: var(--text); background: var(--glass); }
-    nav a.active {
-      color: var(--accent); background: var(--pill-bg);
-      border: 1px solid var(--pill-bdr);
-    }
-    .nav-divider {
-      width: 1px; height: 18px;
-      background: var(--glass-bdr); flex-shrink: 0;
-    }
+    nav a.active { color: var(--accent); background: var(--pill-bg); border: 1px solid var(--pill-bdr); }
+    .nav-divider { width: 1px; height: 18px; background: var(--glass-bdr); flex-shrink: 0; }
     .nav-right { display: flex; align-items: center; gap: 8px; }
-    .nav-status {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 0.72rem; color: var(--muted); white-space: nowrap;
-    }
+    .nav-status { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
     .nav-status .pulse {
       width: 7px; height: 7px; border-radius: 50%; background: #4ADE80;
-      box-shadow: 0 0 0 0 rgba(74,222,128,0.6);
       animation: sonar 2s ease-out infinite;
     }
     @keyframes sonar {
@@ -128,64 +107,52 @@
     .theme-toggle {
       width: 34px; height: 34px; border-radius: 50%;
       background: var(--glass); border: 1px solid var(--glass-bdr);
-      cursor: pointer; display: flex; align-items: center;
-      justify-content: center; font-size: 1rem;
-      transition: background 0.2s; color: var(--text-2);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: background 0.2s; color: var(--text-2);
     }
     .theme-toggle:hover { background: var(--glass-b); }
 
-    /* ═══ LAYOUT ════════════════════════════════════════════ */
+    /* LAYOUT */
     main { position: relative; z-index: 1; }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
-    /* ═══ GLASS CARD ════════════════════════════════════════ */
+    /* GLASS */
     .glass {
       background: var(--glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-bdr);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+      border-radius: 24px; box-shadow: var(--shadow);
     }
     .glass-strong {
       background: var(--glass-b);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--glass-bdr);
-      border-radius: 24px;
-      box-shadow: var(--shadow-lg);
+      border-radius: 24px; box-shadow: var(--shadow-lg);
     }
 
-    /* ═══ HERO ═══════════════════════════════════════════════ */
+    /* HERO */
     #home {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
+      min-height: 100vh; display: flex; flex-direction: column;
       justify-content: center; align-items: center;
-      text-align: center;
-      padding: 120px 40px 80px;
+      text-align: center; padding: 120px 40px 80px;
     }
     .hero-kicker {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 0.78rem; font-weight: 500; color: var(--accent);
       background: var(--pill-bg); border: 1px solid var(--pill-bdr);
-      padding: 6px 16px; border-radius: 999px;
-      margin-bottom: 36px;
+      padding: 6px 16px; border-radius: 999px; margin-bottom: 36px;
       backdrop-filter: blur(8px);
     }
     .hero-name {
       font-family: 'Fraunces', serif;
       font-size: clamp(4.5rem, 11vw, 9rem);
-      font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      font-weight: 700; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 8px;
     }
     .hero-name .italic { font-style: italic; font-weight: 300; color: var(--accent); }
     .hero-role {
       font-family: 'Fraunces', serif;
       font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-weight: 300; font-style: italic;
-      color: var(--text-2); margin-bottom: 32px;
+      font-weight: 300; font-style: italic; color: var(--text-2); margin-bottom: 32px;
     }
     .hero-bio {
       font-size: 1rem; font-weight: 300; line-height: 1.75;
@@ -194,82 +161,53 @@
     .hero-bio strong { font-weight: 500; color: var(--text); }
     .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-glow {
-      padding: 13px 28px; border-radius: 999px;
-      font-size: 0.88rem; font-weight: 500;
-      cursor: pointer; border: none;
-      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 999px; font-size: 0.88rem; font-weight: 500;
+      cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px;
       text-decoration: none; transition: all 0.25s;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(107,82,200,0.4);
+      color: #fff; box-shadow: 0 4px 20px rgba(107,82,200,0.4);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(107,82,200,0.5); }
     .btn-ghost {
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-bdr);
-      color: var(--text);
+      background: var(--glass); backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-bdr); color: var(--text);
     }
     .btn-ghost:hover { background: var(--glass-b); transform: translateY(-2px); }
 
-    /* hero stat strip */
     .hero-stats {
-      display: flex; gap: 0;
-      margin-top: 64px;
-      background: var(--glass);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-bdr);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      display: flex; margin-top: 64px;
+      background: var(--glass); backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-bdr); border-radius: 20px;
+      overflow: hidden; box-shadow: var(--shadow);
     }
-    .h-stat {
-      flex: 1; padding: 24px 28px; text-align: center;
-      border-right: 1px solid var(--glass-bdr);
-    }
+    .h-stat { flex: 1; padding: 24px 28px; text-align: center; border-right: 1px solid var(--glass-bdr); }
     .h-stat:last-child { border-right: none; }
-    .h-stat-val {
-      font-family: 'Fraunces', serif;
-      font-size: 2rem; font-weight: 700; color: var(--accent);
-      line-height: 1; margin-bottom: 6px;
-    }
+    .h-stat-val { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
     .h-stat-lbl { font-size: 0.75rem; font-weight: 400; color: var(--muted); }
 
-    /* ═══ SECTION SHARED ════════════════════════════════════ */
+    /* SECTIONS */
     section { padding: 100px 0; }
     .section-tag {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.72rem; font-weight: 500;
-      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 16px;
+      font-size: 0.72rem; font-weight: 500; color: var(--accent);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;
     }
-    .section-tag::before {
-      content: ''; width: 20px; height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      border-radius: 2px;
-    }
+    .section-tag::before { content: ''; width: 20px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 2px; }
     .section-title {
       font-family: 'Fraunces', serif;
       font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 700; line-height: 1.1;
-      letter-spacing: -0.015em; margin-bottom: 56px;
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 56px;
     }
     .section-title em { font-style: italic; font-weight: 300; color: var(--accent); }
 
-    /* ═══ FEATURED WORK ═════════════════════════════════════ */
-    #home .wrap { width: 100%; max-width: 1100px; }
+    /* FEATURED */
     .featured-grid {
       display: grid; grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 16px; margin-top: 64px;
+      grid-template-rows: auto auto; gap: 16px; margin-top: 64px;
     }
-    .feat-card {
-      padding: 28px 30px; border-radius: 22px;
-      transition: transform 0.25s, box-shadow 0.25s;
-      cursor: default;
-    }
+    .feat-card { padding: 28px 30px; border-radius: 22px; transition: transform 0.25s, box-shadow 0.25s; cursor: default; }
     .feat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .feat-card.big { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
     .feat-num { font-size: 0.68rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 12px; }
@@ -277,245 +215,102 @@
     .feat-card.big h3 { font-size: 1.5rem; }
     .feat-card p { font-size: 0.82rem; color: var(--text-2); line-height: 1.6; font-weight: 300; }
     .feat-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.68rem; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500;
       background: linear-gradient(135deg, rgba(107,82,200,0.15), rgba(200,82,160,0.12));
       color: var(--accent); border: 1px solid var(--pill-bdr);
-      padding: 4px 12px; border-radius: 999px;
-      margin-bottom: 14px;
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 14px;
     }
     .feat-impact {
       font-size: 0.78rem; font-weight: 500; color: var(--text-2);
       background: var(--pill-bg); border: 1px solid var(--glass-bdr);
       padding: 6px 14px; border-radius: 999px;
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 16px;
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
     }
     .feat-impact .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
     .feat-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .ftag {
-      font-size: 0.68rem; font-weight: 400; color: var(--muted);
-      background: var(--pill-bg); border: 1px solid var(--glass-bdr);
-      padding: 3px 10px; border-radius: 999px;
-    }
+    .ftag { font-size: 0.68rem; color: var(--muted); background: var(--pill-bg); border: 1px solid var(--glass-bdr); padding: 3px 10px; border-radius: 999px; }
 
-    /* ═══ ABOUT ══════════════════════════════════════════════ */
-    #about .inner {
-      display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start;
-    }
+    /* ABOUT */
+    #about .inner { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start; }
     .about-photo-wrap { position: relative; }
-    .about-photo {
-      width: 100%; aspect-ratio: 3/4;
-      object-fit: cover; object-position: top;
-      border-radius: 20px;
-      border: 1px solid var(--glass-bdr);
-      box-shadow: var(--shadow-lg);
-    }
-    .about-float-card {
-      position: absolute; bottom: -16px; right: -20px;
-      padding: 14px 18px; border-radius: 16px;
-      font-size: 0.8rem; font-weight: 500; color: var(--accent);
-      white-space: nowrap;
-    }
-    .about-float-card .val {
-      font-family: 'Fraunces', serif;
-      font-size: 1.6rem; font-weight: 700; display: block; line-height: 1;
-    }
-    .about-text p {
-      font-size: 0.95rem; font-weight: 300; line-height: 1.8;
-      color: var(--text-2); margin-bottom: 16px;
-    }
+    .about-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid var(--glass-bdr); box-shadow: var(--shadow-lg); }
+    .about-float-card { position: absolute; bottom: -16px; right: -20px; padding: 14px 18px; border-radius: 16px; font-size: 0.8rem; font-weight: 500; color: var(--accent); white-space: nowrap; }
+    .about-float-card .val { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; display: block; line-height: 1; }
+    .about-text p { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: var(--text-2); margin-bottom: 16px; }
     .about-text p strong { font-weight: 500; color: var(--text); }
-    .about-meta-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px;
-    }
-    .meta-chip {
-      padding: 14px 18px; border-radius: 14px;
-    }
+    .about-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
+    .meta-chip { padding: 14px 18px; border-radius: 14px; }
     .meta-chip-label { font-size: 0.66rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
     .meta-chip-val { font-size: 0.9rem; font-weight: 500; color: var(--text); }
 
-    /* ═══ SKILLS ═════════════════════════════════════════════ */
-    #skills .skills-wrap {
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .skill-row {
-      padding: 22px 28px; border-radius: 18px;
-      display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center;
-      transition: transform 0.2s;
-    }
+    /* SKILLS */
+    #skills .skills-wrap { display: flex; flex-direction: column; gap: 16px; }
+    .skill-row { padding: 22px 28px; border-radius: 18px; display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center; transition: transform 0.2s; }
     .skill-row:hover { transform: translateX(4px); }
-    .skill-cat {
-      font-size: 0.8rem; font-weight: 500; color: var(--text-2);
-    }
+    .skill-cat { font-size: 0.8rem; font-weight: 500; color: var(--text-2); }
     .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
     .spill {
       font-size: 0.75rem; font-weight: 400; color: var(--text-2);
       background: var(--pill-bg); border: 1px solid var(--glass-bdr);
-      padding: 5px 13px; border-radius: 999px;
-      transition: all 0.2s; cursor: default;
-      backdrop-filter: blur(8px);
+      padding: 5px 13px; border-radius: 999px; transition: all 0.2s; cursor: default;
     }
     .spill:hover { color: var(--accent); border-color: var(--pill-bdr); background: var(--glass-b); }
 
-    /* ═══ EXPERIENCE ═════════════════════════════════════════ */
+    /* EXPERIENCE */
     #experience .exp-cards { display: flex; flex-direction: column; gap: 16px; }
-    .exp-card {
-      padding: 32px 36px; border-radius: 22px;
-      display: grid; grid-template-columns: 200px 1fr; gap: 40px;
-      transition: transform 0.2s;
-    }
+    .exp-card { padding: 32px 36px; border-radius: 22px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; transition: transform 0.2s; }
     .exp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
     .exp-aside { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
-    .exp-date {
-      font-size: 0.75rem; font-weight: 500; color: var(--accent);
-      background: var(--pill-bg); border: 1px solid var(--pill-bdr);
-      padding: 4px 12px; border-radius: 999px; display: inline-block; width: fit-content;
-    }
+    .exp-date { font-size: 0.75rem; font-weight: 500; color: var(--accent); background: var(--pill-bg); border: 1px solid var(--pill-bdr); padding: 4px 12px; border-radius: 999px; display: inline-block; width: fit-content; }
     .exp-where { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
     .exp-role { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; margin-bottom: 4px; }
     .exp-co { font-size: 0.78rem; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; }
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .exp-bullets li {
-      font-size: 0.86rem; font-weight: 300; color: var(--text-2);
-      line-height: 1.65; padding-left: 16px; position: relative;
-    }
-    .exp-bullets li::before {
-      content: ''; position: absolute; left: 0; top: 9px;
-      width: 5px; height: 5px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    }
+    .exp-bullets li { font-size: 0.86rem; font-weight: 300; color: var(--text-2); line-height: 1.65; padding-left: 16px; position: relative; }
+    .exp-bullets li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
     .exp-bullets li strong { color: var(--text); font-weight: 500; }
 
-    /* ═══ PROJECTS ═══════════════════════════════════════════ */
-    #projects .proj-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    }
-    .proj-card {
-      padding: 28px; border-radius: 22px;
-      display: flex; flex-direction: column; gap: 12px;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
+    /* PROJECTS */
+    #projects .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .proj-card { padding: 28px; border-radius: 22px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.25s, box-shadow 0.25s; }
     .proj-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
     .proj-card.wide { grid-column: span 2; }
     .proj-num { font-size: 0.65rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; }
-    .proj-award-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.68rem; font-weight: 500; color: var(--accent);
-      background: linear-gradient(135deg, rgba(107,82,200,0.12), rgba(200,82,160,0.08));
-      border: 1px solid var(--pill-bdr); padding: 3px 12px; border-radius: 999px; width: fit-content;
-    }
+    .proj-award-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--accent); background: linear-gradient(135deg, rgba(107,82,200,0.12), rgba(200,82,160,0.08)); border: 1px solid var(--pill-bdr); padding: 3px 12px; border-radius: 999px; width: fit-content; }
     .proj-card h3 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 500; line-height: 1.35; }
     .proj-card.wide h3 { font-size: 1.15rem; }
     .proj-card p { font-size: 0.8rem; color: var(--text-2); font-weight: 300; line-height: 1.65; flex: 1; }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .ptag {
-      font-size: 0.68rem; color: var(--muted);
-      background: var(--pill-bg); border: 1px solid var(--glass-bdr);
-      padding: 3px 10px; border-radius: 999px;
-    }
-    .proj-foot {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; padding-top: 4px;
-    }
-    .proj-impact-pill {
-      font-size: 0.72rem; font-weight: 500; color: var(--text-2);
-      background: var(--glass); border: 1px solid var(--glass-bdr);
-      padding: 5px 12px; border-radius: 999px;
-    }
-    .proj-gh {
-      font-size: 0.72rem; font-weight: 400; color: var(--muted);
-      transition: color 0.15s; white-space: nowrap;
-    }
+    .ptag { font-size: 0.68rem; color: var(--muted); background: var(--pill-bg); border: 1px solid var(--glass-bdr); padding: 3px 10px; border-radius: 999px; }
+    .proj-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 4px; }
+    .proj-impact-pill { font-size: 0.72rem; font-weight: 500; color: var(--text-2); background: var(--glass); border: 1px solid var(--glass-bdr); padding: 5px 12px; border-radius: 999px; }
+    .proj-gh { font-size: 0.72rem; font-weight: 400; color: var(--muted); transition: color 0.15s; white-space: nowrap; }
     .proj-gh:hover { color: var(--accent); }
 
-    /* ═══ AWARDS ═════════════════════════════════════════════ */
-    #awards .awards-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
-    }
+    /* AWARDS */
+    #awards .awards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .award-card { padding: 30px; border-radius: 22px; transition: transform 0.2s; }
     .award-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
     .award-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
     .award-card h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500; margin-bottom: 8px; }
     .award-card p { font-size: 0.82rem; color: var(--text-2); font-weight: 300; line-height: 1.6; margin-bottom: 12px; }
-    .award-when {
-      font-size: 0.7rem; font-weight: 500; color: var(--accent);
-      background: var(--pill-bg); border: 1px solid var(--pill-bdr);
-      padding: 3px 12px; border-radius: 999px; display: inline-block;
-    }
+    .award-when { font-size: 0.7rem; font-weight: 500; color: var(--accent); background: var(--pill-bg); border: 1px solid var(--pill-bdr); padding: 3px 12px; border-radius: 999px; display: inline-block; }
 
-    /* ═══ CONTACT ════════════════════════════════════════════ */
-    #contact .contact-wrap {
-      display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start;
-      max-width: 580px;
-    }
-    #contact h2 { margin-bottom: 20px; }
-    #contact .sub {
-      font-size: 0.93rem; font-weight: 300; color: var(--text-2);
-      line-height: 1.75; margin-bottom: 36px;
-    }
-    .contact-links { display: flex; flex-direction: column; gap: 12px; }
-    .clink {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 18px; border-radius: 14px;
-      font-size: 0.88rem; font-weight: 400;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+    /* CONTACT */
+    .contact-links { display: flex; flex-direction: column; gap: 12px; max-width: 480px; }
+    .clink { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 14px; font-size: 0.88rem; font-weight: 400; transition: transform 0.2s, box-shadow 0.2s; }
     .clink:hover { transform: translateX(4px); box-shadow: var(--shadow); }
-    .clink-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(107,82,200,0.3);
-    }
-    .clink-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 2px; font-weight: 400; }
+    .clink-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; box-shadow: 0 4px 12px rgba(107,82,200,0.3); color: #fff; }
+    .clink-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 2px; }
     .clink-val { font-size: 0.85rem; font-weight: 500; color: var(--text); }
-    .form-glass { padding: 36px; border-radius: 24px; }
-    .form-glass h3 {
-      font-family: 'Fraunces', serif; font-size: 1.3rem;
-      font-weight: 500; margin-bottom: 6px;
-    }
-    .form-glass .sub2 { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; font-weight: 300; }
-    .fg { margin-bottom: 14px; }
-    .fg label { font-size: 0.72rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 6px; }
-    .fg input, .fg textarea {
-      width: 100%;
-      background: var(--pill-bg);
-      border: 1px solid var(--glass-bdr);
-      border-radius: 12px;
-      padding: 11px 16px;
-      font-size: 0.88rem; color: var(--text);
-      font-family: 'Geist', sans-serif;
-      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-      backdrop-filter: blur(8px);
-    }
-    .fg input:focus, .fg textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(107,82,200,0.12);
-    }
-    .fg textarea { resize: vertical; min-height: 90px; }
-    [data-theme="dark"] .fg input,
-    [data-theme="dark"] .fg textarea { background: rgba(255,255,255,0.05); }
+    #contact .sub { font-size: 0.93rem; font-weight: 300; color: var(--text-2); line-height: 1.75; margin-bottom: 36px; max-width: 540px; }
 
-    /* ═══ FOOTER ═════════════════════════════════════════════ */
-    footer {
-      position: relative; z-index: 1;
-      padding: 32px 40px;
-      border-top: 1px solid var(--glass-bdr);
-      display: flex; justify-content: space-between; align-items: center;
-    }
+    /* FOOTER */
+    footer { position: relative; z-index: 1; padding: 32px 40px; border-top: 1px solid var(--glass-bdr); display: flex; justify-content: space-between; align-items: center; }
     footer span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
 
-    /* REVEAL */
-    .reveal { opacity: 1; transform: none; }
-
-
-
-
-    /* ═══ RESPONSIVE ═════════════════════════════════════════ */
+    /* RESPONSIVE */
     @media (max-width: 980px) {
-      nav .topbar-nav { display: none; }
       #about .inner { grid-template-columns: 1fr; }
       .about-float-card { display: none; }
       .featured-grid { grid-template-columns: 1fr; }
@@ -524,11 +319,10 @@
       .proj-card.wide { grid-column: span 1; }
       .exp-card { grid-template-columns: 1fr; gap: 12px; }
       #awards .awards-grid { grid-template-columns: 1fr; }
-      #contact .contact-wrap { grid-template-columns: 1fr; }
       .h-stat-val { font-size: 1.4rem; }
       .wrap { padding: 0 20px; }
       nav { width: calc(100% - 40px); justify-content: space-between; padding: 10px 16px; border-radius: 16px; top: 12px; }
-      footer { flex-direction: column; gap: 8px; text-align: center; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
       .hero-stats { flex-direction: column; }
       .h-stat { border-right: none; border-bottom: 1px solid var(--glass-bdr); }
       .h-stat:last-child { border-bottom: none; }
@@ -539,7 +333,6 @@
 </head>
 <body>
 
-<!-- AMBIENT ORBS -->
 <div class="orbs">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -547,7 +340,6 @@
   <div class="orb orb-4"></div>
 </div>
 
-<!-- FLOATING NAV -->
 <nav>
   <a href="#home" class="active">Home</a>
   <a href="#about">About</a>
@@ -569,9 +361,7 @@
   <section id="home">
     <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
       <div class="hero-kicker">✦ Data Analyst · Data Scientist · Business Analyst · Product Analyst · Risk Analyst</div>
-      <h1 class="hero-name">
-        Sinchana <span class="italic">G V</span>
-      </h1>
+      <h1 class="hero-name">Sinchana <span class="italic">G V</span></h1>
       <p class="hero-role">Turning data into decisions that matter</p>
       <p class="hero-bio">
         <strong>2+ years</strong> building AI systems, analytics pipelines, and data-driven products.
@@ -583,7 +373,6 @@
         <a href="#projects" class="btn-glow btn-ghost">View Projects</a>
         <a href="mailto:sinchanagv24@gmail.com" class="btn-glow btn-ghost">Get in Touch</a>
       </div>
-
       <div class="hero-stats">
         <div class="h-stat"><div class="h-stat-val">3.81</div><div class="h-stat-lbl">UMD GPA / 4.00</div></div>
         <div class="h-stat"><div class="h-stat-val">€2M+</div><div class="h-stat-lbl">Cost savings at Accenture</div></div>
@@ -591,23 +380,16 @@
         <div class="h-stat"><div class="h-stat-val">8+</div><div class="h-stat-lbl">Production ML projects</div></div>
         <div class="h-stat"><div class="h-stat-val">100+</div><div class="h-stat-lbl">Students taught at UMD</div></div>
       </div>
-
-      <!-- FEATURED WORK CARDS -->
-      <div class="featured-grid" style="width:100%;margin-top:64px;">
+      <div class="featured-grid" style="width:100%;">
         <div class="feat-card glass-strong big">
           <div>
             <div class="feat-num">01 / BEST WORK</div>
             <span class="feat-badge">🏆 3rd Place, MCP AI Hackathon</span>
             <h3>Invoice Agent: AI-Powered X12 Processing</h3>
             <p>End-to-end AI workflow parsing, validating, and enriching EDI X12 invoices using RedisVL vector search, semantic matching, and LLMs.</p>
-            <div class="feat-tech">
-              <span class="ftag">RedisVL</span><span class="ftag">LLMs</span>
-              <span class="ftag">RAG</span><span class="ftag">Streamlit</span>
-            </div>
+            <div class="feat-tech"><span class="ftag">RedisVL</span><span class="ftag">LLMs</span><span class="ftag">RAG</span><span class="ftag">Streamlit</span></div>
           </div>
-          <div>
-            <div class="feat-impact"><span class="dot"></span>60% reduction in manual review</div>
-          </div>
+          <div><div class="feat-impact"><span class="dot"></span>60% reduction in manual review</div></div>
         </div>
         <div class="feat-card glass">
           <div class="feat-num">02</div>
@@ -642,7 +424,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="reveal">
+  <section id="about">
     <div class="wrap">
       <div class="section-tag">About Me</div>
       <h2 class="section-title">Engineer by training,<br><em>builder by instinct</em></h2>
@@ -670,46 +452,27 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="reveal">
+  <section id="skills">
     <div class="wrap">
       <div class="section-tag">Technical Skills</div>
       <h2 class="section-title">What I work <em>with</em></h2>
       <div class="skills-wrap">
-        <div class="skill-row glass">
-          <div class="skill-cat">Languages</div>
-          <div class="skill-pills"><span class="spill">Python</span><span class="spill">SQL</span><span class="spill">R</span><span class="spill">C++</span><span class="spill">Java</span><span class="spill">JavaScript</span></div>
-        </div>
-        <div class="skill-row glass">
-          <div class="skill-cat">ML / AI</div>
-          <div class="skill-pills"><span class="spill">PyTorch</span><span class="spill">TensorFlow</span><span class="spill">Scikit-learn</span><span class="spill">XGBoost</span><span class="spill">LightGBM</span><span class="spill">Keras</span><span class="spill">Hugging Face</span><span class="spill">FAISS</span><span class="spill">RedisVL</span><span class="spill">LLMs</span><span class="spill">RAG Pipelines</span><span class="spill">LLM Fine-tuning</span><span class="spill">NLTK</span><span class="spill">spaCy</span><span class="spill">OpenCV</span></div>
-        </div>
-        <div class="skill-row glass">
-          <div class="skill-cat">Data Engineering</div>
-          <div class="skill-pills"><span class="spill">Snowflake</span><span class="spill">BigQuery</span><span class="spill">PostgreSQL</span><span class="spill">MongoDB</span><span class="spill">Redis</span><span class="spill">MySQL</span><span class="spill">dbt</span><span class="spill">Apache Spark</span><span class="spill">ETL Pipelines</span></div>
-        </div>
-        <div class="skill-row glass">
-          <div class="skill-cat">Cloud / Infra</div>
-          <div class="skill-pills"><span class="spill">AWS SageMaker</span><span class="spill">AWS Lambda</span><span class="spill">AWS S3</span><span class="spill">AWS EC2</span><span class="spill">AWS Redshift</span><span class="spill">GCP</span><span class="spill">Docker</span><span class="spill">CI/CD</span><span class="spill">GPU Training</span></div>
-        </div>
-        <div class="skill-row glass">
-          <div class="skill-cat">Visualization</div>
-          <div class="skill-pills"><span class="spill">Tableau</span><span class="spill">Power BI</span><span class="spill">Looker Studio</span><span class="spill">Streamlit</span><span class="spill">Plotly</span><span class="spill">Matplotlib</span><span class="spill">Seaborn</span><span class="spill">ggplot2</span><span class="spill">R Shiny</span></div>
-        </div>
-        <div class="skill-row glass">
-          <div class="skill-cat">Statistics</div>
-          <div class="skill-pills"><span class="spill">Pandas</span><span class="spill">NumPy</span><span class="spill">SciPy</span><span class="spill">Statsmodels</span><span class="spill">A/B Testing</span><span class="spill">Hypothesis Testing</span><span class="spill">Time Series</span><span class="spill">Feature Engineering</span></div>
-        </div>
+        <div class="skill-row glass"><div class="skill-cat">Languages</div><div class="skill-pills"><span class="spill">Python</span><span class="spill">SQL</span><span class="spill">R</span><span class="spill">C++</span><span class="spill">Java</span><span class="spill">JavaScript</span></div></div>
+        <div class="skill-row glass"><div class="skill-cat">ML / AI</div><div class="skill-pills"><span class="spill">PyTorch</span><span class="spill">TensorFlow</span><span class="spill">Scikit-learn</span><span class="spill">XGBoost</span><span class="spill">LightGBM</span><span class="spill">Keras</span><span class="spill">Hugging Face</span><span class="spill">FAISS</span><span class="spill">RedisVL</span><span class="spill">LLMs</span><span class="spill">RAG Pipelines</span><span class="spill">LLM Fine-tuning</span><span class="spill">NLTK</span><span class="spill">spaCy</span><span class="spill">OpenCV</span></div></div>
+        <div class="skill-row glass"><div class="skill-cat">Data Engineering</div><div class="skill-pills"><span class="spill">Snowflake</span><span class="spill">BigQuery</span><span class="spill">PostgreSQL</span><span class="spill">MongoDB</span><span class="spill">Redis</span><span class="spill">MySQL</span><span class="spill">dbt</span><span class="spill">Apache Spark</span><span class="spill">ETL Pipelines</span></div></div>
+        <div class="skill-row glass"><div class="skill-cat">Cloud / Infra</div><div class="skill-pills"><span class="spill">AWS SageMaker</span><span class="spill">AWS Lambda</span><span class="spill">AWS S3</span><span class="spill">AWS EC2</span><span class="spill">AWS Redshift</span><span class="spill">GCP</span><span class="spill">Docker</span><span class="spill">CI/CD</span><span class="spill">GPU Training</span></div></div>
+        <div class="skill-row glass"><div class="skill-cat">Visualization</div><div class="skill-pills"><span class="spill">Tableau</span><span class="spill">Power BI</span><span class="spill">Looker Studio</span><span class="spill">Streamlit</span><span class="spill">Plotly</span><span class="spill">Matplotlib</span><span class="spill">Seaborn</span><span class="spill">ggplot2</span><span class="spill">R Shiny</span></div></div>
+        <div class="skill-row glass"><div class="skill-cat">Statistics</div><div class="skill-pills"><span class="spill">Pandas</span><span class="spill">NumPy</span><span class="spill">SciPy</span><span class="spill">Statsmodels</span><span class="spill">A/B Testing</span><span class="spill">Hypothesis Testing</span><span class="spill">Time Series</span><span class="spill">Feature Engineering</span></div></div>
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="reveal">
+  <section id="experience">
     <div class="wrap">
       <div class="section-tag">Experience</div>
       <h2 class="section-title">Where I've <em>made an impact</em></h2>
       <div class="exp-cards">
-
         <div class="exp-card glass">
           <div class="exp-aside">
             <span class="exp-date">Aug 2025 – Present</span>
@@ -726,7 +489,6 @@
             </ul>
           </div>
         </div>
-
         <div class="exp-card glass">
           <div class="exp-aside">
             <span class="exp-date">Aug 2024 – May 2025</span>
@@ -742,7 +504,6 @@
             </ul>
           </div>
         </div>
-
         <div class="exp-card glass">
           <div class="exp-aside">
             <span class="exp-date">May 2024 – Aug 2024</span>
@@ -759,7 +520,6 @@
             </ul>
           </div>
         </div>
-
         <div class="exp-card glass">
           <div class="exp-aside">
             <span class="exp-date">Jun 2021 – Jun 2023</span>
@@ -776,102 +536,72 @@
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="reveal">
+  <section id="projects">
     <div class="wrap">
       <div class="section-tag">Projects</div>
       <h2 class="section-title">Production-grade systems,<br><em>measurable impact</em></h2>
       <div class="proj-grid">
-
         <div class="proj-card glass wide">
           <div class="proj-num">01 / 07</div>
           <span class="proj-award-tag">🏆 3rd Place, MCP AI Hackathon</span>
           <h3>Invoice Agent: AI-Powered X12 Processing</h3>
           <p>End-to-end AI workflow parsing, validating, and enriching EDI X12 invoices using RedisVL vector search and semantic matching. Streamlit dashboard for real-time anomaly monitoring.</p>
           <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">RedisVL</span><span class="ptag">LLMs</span><span class="ptag">RAG</span><span class="ptag">Streamlit</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">85% accuracy · 60% review reduction</span>
-            <a href="https://github.com/sinchanagv24/invoice-agent-x12-starter" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">85% accuracy · 60% review reduction</span><a href="https://github.com/sinchanagv24/invoice-agent-x12-starter" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
         <div class="proj-card glass">
           <div class="proj-num">02 / 07</div>
           <h3>FinTech Risk Analytics Dashboard</h3>
           <p>Risk analysis platform for 2,965 customers with $152M exposure. ARIMA+ forecasting with BigQuery ML. 32% high-risk customers hold 3x disproportionate exposure.</p>
           <div class="proj-tags"><span class="ptag">dbt</span><span class="ptag">BigQuery</span><span class="ptag">BigQuery ML</span><span class="ptag">Looker Studio</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">$152M analyzed</span>
-            <a href="https://github.com/sinchanagv24/fintech_dbt" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">$152M analyzed</span><a href="https://github.com/sinchanagv24/fintech_dbt" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
         <div class="proj-card glass">
           <div class="proj-num">03 / 07</div>
           <h3>Multimodal Data Drift Detector</h3>
           <p>Drift detection combining KS test, PSI, and z-score with multimodal context from PDFs, screenshots, and logs. AI root-cause explanations with Slack alerts.</p>
           <div class="proj-tags"><span class="ptag">Streamlit</span><span class="ptag">NLP</span><span class="ptag">OCR</span><span class="ptag">Scikit-learn</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">Why metrics changed, not just that they did</span>
-            <a href="https://github.com/sinchanagv24/mm-drift-detector" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">Why metrics changed, not just that they did</span><a href="https://github.com/sinchanagv24/mm-drift-detector" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
         <div class="proj-card glass">
           <div class="proj-num">04 / 07</div>
           <h3>Customer Churn Prediction on AWS</h3>
           <p>ML pipeline predicting churn 30 days ahead using ensemble methods. SageMaker deployment with QuickSight monitoring and SHAP-based feature importance.</p>
           <div class="proj-tags"><span class="ptag">SageMaker</span><span class="ptag">XGBoost</span><span class="ptag">SHAP</span><span class="ptag">QuickSight</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">F1: 0.82 · Real-time inference</span>
-            <a href="https://github.com/sinchanagv24/customer-churn-pred-aws" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">F1: 0.82 · Real-time inference</span><a href="https://github.com/sinchanagv24/customer-churn-pred-aws" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
         <div class="proj-card glass">
           <div class="proj-num">05 / 07</div>
           <h3>Poetic Device Classifier (LLM Fine-tuning)</h3>
           <p>Fine-tuned Mistral 7B on 13,900 annotated stanzas using LoRA. FAISS retrieval + GPT explanations. Processes 1,000+ stanzas per minute.</p>
           <div class="proj-tags"><span class="ptag">Mistral 7B</span><span class="ptag">PyTorch</span><span class="ptag">LoRA</span><span class="ptag">FAISS</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">20% gain · Eval loss 0.55 to 0.42</span>
-            <a href="https://github.com/sinchanagv24/Poetic-device-classifier" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">20% gain · Eval loss 0.55 to 0.42</span><a href="https://github.com/sinchanagv24/Poetic-device-classifier" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
         <div class="proj-card glass">
           <div class="proj-num">06 / 07</div>
           <h3>DC Metro Ridership Analytics</h3>
           <p>3+ years of WMATA data across 98 stations. Seasonal decomposition, peak analysis, anomaly detection near venues, with dynamic scheduling recommendations.</p>
           <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Seaborn</span><span class="ptag">EDA</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">PM Peak identified as busiest</span>
-            <a href="https://github.com/sinchanagv24/DC-metro-ridership-analysis" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">PM Peak identified as busiest</span><a href="https://github.com/sinchanagv24/DC-metro-ridership-analysis" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
         <div class="proj-card glass wide">
           <div class="proj-num">07 / 07</div>
           <h3>COVID-19 Case Fatality Rate Analysis</h3>
           <p>Comprehensive statistical analysis of global COVID-19 CFR data. EDA and wrangling on large-scale pandemic datasets. ggplot2 visualizations with R Markdown report covering statistical interpretations and actionable takeaways.</p>
           <div class="proj-tags"><span class="ptag">R</span><span class="ptag">ggplot2</span><span class="ptag">dplyr</span><span class="ptag">tidyverse</span><span class="ptag">R Markdown</span></div>
-          <div class="proj-foot">
-            <span class="proj-impact-pill">Global pandemic data insights</span>
-            <a href="https://github.com/sinchanagv24/COVID-19-analysis" target="_blank" class="proj-gh">github ↗</a>
-          </div>
+          <div class="proj-foot"><span class="proj-impact-pill">Global pandemic data insights</span><a href="https://github.com/sinchanagv24/COVID-19-analysis" target="_blank" class="proj-gh">github ↗</a></div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- AWARDS -->
-  <section id="awards" class="reveal">
+  <section id="awards">
     <div class="wrap">
       <div class="section-tag">Recognition</div>
       <h2 class="section-title">Awards &amp; <em>honors</em></h2>
@@ -905,12 +635,12 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="reveal">
+  <section id="contact">
     <div class="wrap">
       <div class="section-tag">Contact</div>
       <h2 class="section-title" style="margin-bottom:16px;">Let's build<br><em>something great</em></h2>
-      <p class="sub" style="max-width:540px;margin-bottom:40px;">Actively seeking full-time roles in Data Analytics, Data Science, Business Analysis, Product Analytics, and Risk Analytics. Whether you want to discuss a role or explore collaboration, I'd love to connect.</p>
-      <div class="contact-links" style="max-width:480px;">
+      <p class="sub">Actively seeking full-time roles in Data Analytics, Data Science, Business Analysis, Product Analytics, and Risk Analytics. Whether you want to discuss a role or explore collaboration, I'd love to connect.</p>
+      <div class="contact-links">
         <a href="mailto:sinchanagv24@gmail.com" class="clink glass">
           <div class="clink-icon">✉</div>
           <div><div class="clink-label">Email</div><div class="clink-val">sinchanagv24@gmail.com</div></div>
@@ -920,15 +650,15 @@
           <div><div class="clink-label">Phone</div><div class="clink-val">(240) 413-3195</div></div>
         </a>
         <a href="https://www.linkedin.com/in/sinchanagv/" target="_blank" class="clink glass">
-          <div class="clink-icon">in</div>
+          <div class="clink-icon" style="font-size:0.75rem;font-weight:700;">in</div>
           <div><div class="clink-label">LinkedIn</div><div class="clink-val">linkedin.com/in/sinchanagv</div></div>
         </a>
         <a href="https://github.com/sinchanagv24" target="_blank" class="clink glass">
-          <div class="clink-icon" style="font-size:0.85rem;font-weight:700;">GH</div>
+          <div class="clink-icon" style="font-size:0.75rem;font-weight:700;">GH</div>
           <div><div class="clink-label">GitHub</div><div class="clink-val">github.com/sinchanagv24</div></div>
         </a>
         <a href="https://sinchanagv24.github.io" target="_blank" class="clink glass">
-          <div class="clink-icon" style="font-size:0.8rem;font-weight:700;">🌐</div>
+          <div class="clink-icon">🌐</div>
           <div><div class="clink-label">Portfolio</div><div class="clink-val">sinchanagv24.github.io</div></div>
         </a>
       </div>
@@ -943,7 +673,6 @@
 </footer>
 
 <script>
-  // Theme
   const btn = document.getElementById('themeBtn');
   function toggleTheme() {
     const dark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -951,7 +680,13 @@
     btn.textContent = dark ? '☀' : '☾';
   }
 
-  // Active nav
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a');
-  window.addEventListener('scroll',
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 160) cur = s.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }, { passive: true });
+</script>
+</body>
+</html>
